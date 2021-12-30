@@ -94,10 +94,10 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : "G-XV1X26LNSJ"
+    anonymize_ip         : false
 
 
 # Site Author
@@ -108,7 +108,7 @@ author:
   location         : "South-Korea"
   email            : "hojune0303@naver.com"
   links:
-    - label: "Email"
+    - label: "Email: hojune0303@naver.com"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:hojune0303@naver.com"
     - label: "Website"
