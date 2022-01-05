@@ -9,6 +9,14 @@ main:
 
 # 사이드 바 네비게이션
 docs:
+  - title: Machine-Learning
+    children:
+      - title: "Numpy, Pandas"
+        url: /Numpy, Pandas/
+      - title: "데이터 시각화"
+        url: /데이터 시각화/
+      - title: "분류(Classification)"
+        url: /분류(Classification)/
   - title: Github   # 적을때 url 앞에는 하이픈(-) 없는것에 주목.. 이걸로 2시간 날림
     children:
       - title: "fork한 저장소 잔디심기"
