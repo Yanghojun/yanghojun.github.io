@@ -17,8 +17,8 @@ docs:
         url: /데이터 시각화/
       - title: "분류(Classification)"
         url: /분류(Classification)/
-      - title: "머신러닝, 딥러닝을 위한 선형대수학"
-        url: /머신러닝, 딥러닝을 위한 선형대수학/
+      - title: "평가 기법"
+        url: /평가 기법/
   - title: Github   # 적을때 url 앞에는 하이픈(-) 없는것에 주목.. 이걸로 2시간 날림
     children:
       - title: "fork한 저장소 잔디심기"
@@ -27,6 +27,12 @@ docs:
         url: /Markdown 문법/
       - title: "Github 부시기"
         url: /Github 부시기/
+  - title: 인공지능 이해를 위한 수학
+    children:
+      - title: "방정식"
+        url: /방정식/
+      - title: "선형대수학"
+        url: /머신러닝, 딥러닝을 위한 선형대수학/
   - title: Coding
     children:
       - title: "첫번째 포스터"
