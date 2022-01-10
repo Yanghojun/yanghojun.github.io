@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "Numpy, Pandas"
-categories: Machine-Learning # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
+categories: [Machine-Learning] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
 tag: [Python, Pandas, DataFrame, Numpy]
 permalink: /Numpy, Pandas/
 toc: true

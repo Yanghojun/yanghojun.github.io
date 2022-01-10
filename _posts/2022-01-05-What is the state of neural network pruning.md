@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "What is the state of neural network pruning?"
-categories: Paper-Review # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
+categories: [Paper-Review] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
 tag: [Pruning, Neural network, state-of-art]
 permalink: /paper1/
 toc: true
