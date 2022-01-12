@@ -19,6 +19,8 @@ docs:
         url: /분류(Classification)/
       - title: "평가 기법"
         url: /평가 기법/
+      - title: 사이킷런 어려운 부분 쉽게 이해하기
+        url: /사이킷런 어려운 부분 쉽게 이해하기/
   - title: Kaggle
     children:
       - title: 산탄데르 고객 만족 예측

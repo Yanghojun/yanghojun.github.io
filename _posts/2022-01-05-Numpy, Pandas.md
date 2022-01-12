@@ -39,168 +39,193 @@ sidebar:
 
 
 ## 기능
+- 정보 조회
     
-  - 정보 조회
-      
-      ```python
-      DataFrame.info()
-      
-      DataFrame.describe()  # 숫자형 칼럼(int, float)에 대해서만 계산하며 object는 자동으로 제외시킨다
-      
-      DataFrame['column_name'].value_counts()  # Series로 반환시킨 데이터에 대해 특정 값이 몇번 나오는지를 알 수 있게 해줌. 즉 데이터 분포도 파악이 가능한 좋은 함수
-      ```
-      
-      ![](/images/2022-01-05-20-38-23.png)
-      
-      ![](/images/2022-01-05-20-38-30.png)
-      
-      ![](/images/2022-01-05-20-38-36.png)
-      
-  - DataFrame → Dict 형태로의 변환
-      
-      ```python
-      # DataFrame을 딕셔너리로 변환
-      dict3 = df_dict.to_dict('list')    # 이런식으로 'list'를 인자로 주면 훨씬 깔끔하다
-      print('\n df_dict.to_dict() 타입:', type(dict3))
-      print(dict3)
-      
-      dict3 = df_dict.to_dict()
-      print('\n df_dict.to_dict() 타입:', type(dict3))
-      print(dict3)
-      
-      '''output
-      df_dict.to_dict() 타입: <class 'dict'>
-      {'col1': [1, 11], 'col2': [2, 22], 'col3': [3, 33]}
-      
-       df_dict.to_dict() 타입: <class 'dict'>
-      {'col1': {0: 1, 1: 11}, 'col2': {0: 2, 1: 22}, 'col3': {0: 3, 1: 33}}
-      '''
-      ```
+    ```python
+    DataFrame.info()
+    
+    DataFrame.describe()  # 숫자형 칼럼(int, float)에 대해서만 계산하며 object는 자동으로 제외시킨다
+    
+    DataFrame['column_name'].value_counts()  # Series로 반환시킨 데이터에 대해 특정 값이 몇번 나오는지를 알 수 있게 해줌. 즉 데이터 분포도 파악이 가능한 좋은 함수
+    ```
+    
+    ![](/images/2022-01-05-20-38-23.png)
+    
+    ![](/images/2022-01-05-20-38-30.png)
+    
+    ![](/images/2022-01-05-20-38-36.png)
+    
+- DataFrame → Dict 형태로의 변환
+    
+    ```python
+    # DataFrame을 딕셔너리로 변환
+    dict3 = df_dict.to_dict('list')    # 이런식으로 'list'를 인자로 주면 훨씬 깔끔하다
+    print('\n df_dict.to_dict() 타입:', type(dict3))
+    print(dict3)
+    
+    dict3 = df_dict.to_dict()
+    print('\n df_dict.to_dict() 타입:', type(dict3))
+    print(dict3)
+    
+    '''output
+    df_dict.to_dict() 타입: <class 'dict'>
+    {'col1': [1, 11], 'col2': [2, 22], 'col3': [3, 33]}
+    
+     df_dict.to_dict() 타입: <class 'dict'>
+    {'col1': {0: 1, 1: 11}, 'col2': {0: 2, 1: 22}, 'col3': {0: 3, 1: 33}}
+    '''
+    ```
       
 ### 인덱싱
-  - Numpy와 달리 [ ]에 0, 1과 같은 값을 넣을 경우 에러 발생. 칼럼명을 넣어줘야함
+- Numpy와 달리 [ ]에 0, 1과 같은 값을 넣을 경우 에러 발생. 칼럼명을 넣어줘야함
+  
+  ```python
+  print('단일 컬럼 데이터 추출:\n', titanic_df[ 'Pclass' ].head(3))
+  print('\n여러 컬럼들의 데이터 추출:\n', titanic_df[ ['Survived', 'Pclass'] ].head(3))
+  print('[ ] 안에 숫자 index는 KeyError 오류 발생:\n', titanic_df[0])
+  
+  '''output
+  단일 컬럼 데이터 추출:
+   0    3
+  1    1
+  2    3
+  Name: Pclass, dtype: int64
+  
+  여러 컬럼들의 데이터 추출:
+      Survived  Pclass
+  0         0       3
+  1         1       1
+  2         1       3
+  
+  KeyError: 0
+  '''
+  ```
+  
+- 슬라이싱은 가능
+  
+  ```python
+  titanic_df[0:2]
+  
+  '''output
+  PassengerId  Survived  Pclass            Name     Sex   Age  SibSp  Parch     Ticket     Fare Cabin Embarked
+  0            1         0       3  Braund, Mr....    male  22.0      1      0  A/5 21171   7.2500   NaN        S
+  1            2         1       1  Cumings, Mr...  female  38.0      1      0   PC 17599  71.2833   C85        C
+  '''
+  ```
+  
+- 인덱싱 방식은 위치(Position)기반 인덱싱, 명칭(Label)기반 인덱싱이 있으며 그냥 DataFrame[ ]과 같은 형식으로 데이터 접근이 가능하지만 내 생각에 위치기반 인덱싱, 명칭 기반 인덱싱을 `명확히` 구분하게 하기 위해서 iloc, loc 방식을 사용하는것으로 보임
+  - iloc (Integer - location): 위치 기반 인덱싱
+    - 0 부터 시작하는 행, 열의 위치 좌표에만 의존함
+    
+    ```python
+    data_df_reset.iloc[0, 1]
+    
+    '''output
+    'Chulmin'
+    '''
+    ```
       
-      ```python
-      print('단일 컬럼 데이터 추출:\n', titanic_df[ 'Pclass' ].head(3))
-      print('\n여러 컬럼들의 데이터 추출:\n', titanic_df[ ['Survived', 'Pclass'] ].head(3))
-      print('[ ] 안에 숫자 index는 KeyError 오류 발생:\n', titanic_df[0])
+  - loc (label - location): 명칭 기반 인덱싱
+    - 인덱스, 칼럼명으로 접근 ⇒ 행 위치에 `DataFrame 인덱스`, 열 위치에 `칼럼명`
+        - 행 위치같은 경우 불린 인덱싱 지원을 위해 시리즈타입은 호환이 됨 (간단 테스트로 정수형 Series 넣으니까 접근 됐음. 아마 DataFrame.index를 정수가 아니라 문자열 같은걸로 변경하고 다시 실행하면 문자형은 못찾음)
+    - 명칭 기반 인덱싱은 DataFrame.index 객체 (정확히는 pandas.core.indexes.range.RangeIndex)에서 값을 찾음
+    - 명칭 기반 인덱싱은 슬라이싱 할 때 종료 값을 포함한 범위가 반환됨. 위치기반 인덱싱과 혼돈될 수 있는 부분이여서 `매우 조심해야함`
+    - 행 위치에 DataFrame
+    
+    ```python
+    data_df.loc['one', 'Name']
+    
+    data_df_reset.loc[1, 'Name'] # 이런식으로 index가 정수형일 경우엔 정수 입력 가능. 명칭 기반이라고 해서 숫자만 써야하는것 아님
+    													# data_df_reset 데이터프레임은 reset_index를 통해 1부터 인덱스가 시작되도록 변경해놓은 데이터프레임이여서 첫번째 줄의 Name 칼럼 값이 나옴
+    
+    '''output
+    'Chulmin'
+    
+    'Chulmin'
+    '''
+    
+    print('명칭기반 ix slicing\n', data_df.ix['one':'two', 'Name'],'\n')
+    print('위치기반 iloc slicing\n', data_df.iloc[0:1, 0],'\n')
+    print('명칭기반 loc slicing\n', data_df.loc['one':'two', 'Name'])
+    
+    '''output
+    명칭기반 ix slicing
+     one     Chulmin
+    two    Eunkyung
+    Name: Name, dtype: object 
+    
+    위치기반 iloc slicing
+     one    Chulmin
+    Name: Name, dtype: object 
+    
+    명칭기반 loc slicing
+     one     Chulmin
+    two    Eunkyung
+    Name: Name, dtype: object
+    '''
+    ```
       
-      '''output
-      단일 컬럼 데이터 추출:
-       0    3
-      1    1
-      2    3
-      Name: Pclass, dtype: int64
-      
-      여러 컬럼들의 데이터 추출:
-          Survived  Pclass
-      0         0       3
-      1         1       1
-      2         1       3
-      
-      KeyError: 0
-      '''
-      ```
-      
-  - 슬라이싱은 가능
-      
-      ```python
-      titanic_df[0:2]
-      
-      '''output
-      PassengerId  Survived  Pclass            Name     Sex   Age  SibSp  Parch     Ticket     Fare Cabin Embarked
-      0            1         0       3  Braund, Mr....    male  22.0      1      0  A/5 21171   7.2500   NaN        S
-      1            2         1       1  Cumings, Mr...  female  38.0      1      0   PC 17599  71.2833   C85        C
-      '''
-      ```
-      
-  - 인덱싱 방식은 위치(Position)기반 인덱싱, 명칭(Label)기반 인덱싱이 있으며 그냥 DataFrame[ ]과 같은 형식으로 데이터 접근이 가능하지만 내 생각에 위치기반 인덱싱, 명칭 기반 인덱싱을 `명확히` 구분하게 하기 위해서 iloc, loc 방식을 사용하는것으로 보임
-      - iloc (Integer - location): 위치 기반 인덱싱
-          - 0 부터 시작하는 행, 열의 위치 좌표에만 의존함
-          
-          ```python
-          data_df_reset.iloc[0, 1]
-          
-          '''output
-          'Chulmin'
-          '''
-          ```
-          
-      - loc (label - location): 명칭 기반 인덱싱
-          - 인덱스, 칼럼명으로 접근 ⇒ 행 위치에 `DataFrame 인덱스`, 열 위치에 `칼럼명`
-              - 행 위치같은 경우 불린 인덱싱 지원을 위해 시리즈타입은 호환이 됨 (간단 테스트로 정수형 Series 넣으니까 접근 됐음. 아마 DataFrame.index를 정수가 아니라 문자열 같은걸로 변경하고 다시 실행하면 문자형은 못찾음)
-          - 명칭 기반 인덱싱은 DataFrame.index 객체 (정확히는 pandas.core.indexes.range.RangeIndex)에서 값을 찾음
-          - 명칭 기반 인덱싱은 슬라이싱 할 때 종료 값을 포함한 범위가 반환됨. 위치기반 인덱싱과 혼돈될 수 있는 부분이여서 `매우 조심해야함`
-          - 행 위치에 DataFrame
-          
-          ```python
-          data_df.loc['one', 'Name']
-          
-          data_df_reset.loc[1, 'Name'] # 이런식으로 index가 정수형일 경우엔 정수 입력 가능. 명칭 기반이라고 해서 숫자만 써야하는것 아님
-          													# data_df_reset 데이터프레임은 reset_index를 통해 1부터 인덱스가 시작되도록 변경해놓은 데이터프레임이여서 첫번째 줄의 Name 칼럼 값이 나옴
-          
-          '''output
-          'Chulmin'
-          
-          'Chulmin'
-          '''
-          
-          print('명칭기반 ix slicing\n', data_df.ix['one':'two', 'Name'],'\n')
-          print('위치기반 iloc slicing\n', data_df.iloc[0:1, 0],'\n')
-          print('명칭기반 loc slicing\n', data_df.loc['one':'two', 'Name'])
-          
-          '''output
-          명칭기반 ix slicing
-           one     Chulmin
-          two    Eunkyung
-          Name: Name, dtype: object 
-          
-          위치기반 iloc slicing
-           one    Chulmin
-          Name: Name, dtype: object 
-          
-          명칭기반 loc slicing
-           one     Chulmin
-          two    Eunkyung
-          Name: Name, dtype: object
-          '''
-          ```
-          
-      - **불린 인덱싱 (중요)**
-          - loc로 생각해보면 인덱스, 칼럼명을 입력해줘야 하는데 칼럼명은 생략했으니 모든 칼럼을 출력, 인덱스의 경우 Boolean type을 가지고 있는 Series도 호환이 가능하다
-          - iloc은 불린 인덱싱 지원 X
-          - and, or, not 조건 연산자를 활용해서 응용 가능
-          
-          ```python
-          hj_list = []
-          for i in range(891):
-              if i == 460:
-                  hj_list.append(True)
-              else:
-                  hj_list.append(False)
-          
-          hj_list = np.array(hj_list)
-          hj_list = pd.Series(hj_list)
-          
-          titanic_df[hj_list], titanic_df.loc[hj_list]
-          
-          '''output
-          PassengerId  Survived  Pclass            Name   Sex   Age  SibSp  Parch Ticket   Fare Cabin Embarked
-          460          461         1       1  Anderson, M...  male  48.0      0      0  19952  26.55   E12        S
-          
-          PassengerId  Survived  Pclass            Name   Sex   Age  SibSp  Parch Ticket   Fare Cabin Embarked
-          460          461         1       1  Anderson, M...  male  48.0      0      0  19952  26.55   E12        S
-          '''
-          
-          titanic_df[ (titanic_df['Age'] > 60) & (titanic_df['Pclass']==1) & (titanic_df['Sex']=='female')]
-          
-          '''output
-          PassengerId  Survived  Pclass            Name     Sex   Age  SibSp  Parch  Ticket     Fare Cabin Embarked
-          275          276         1       1  Andrews, Mi...  female  63.0      1      0   13502  77.9583    D7        S
-          829          830         1       1  Stone, Mrs....  female  62.0      0      0  113572  80.0000   B28      NaN
-          '''
-          ```
+  - **불린 인덱싱 (중요)**
+    - loc로 생각해보면 인덱스, 칼럼명을 입력해줘야 하는데 칼럼명은 생략했으니 모든 칼럼을 출력, 인덱스의 경우 Boolean type을 가지고 있는 Series도 호환이 가능하다
+    - iloc은 불린 인덱싱 지원 X
+    - and, or, not 조건 연산자를 활용해서 응용 가능
+    
+    ```python
+    hj_list = []
+    for i in range(891):
+        if i == 460:
+            hj_list.append(True)
+        else:
+            hj_list.append(False)
+    
+    hj_list = np.array(hj_list)
+    hj_list = pd.Series(hj_list)
+    
+    titanic_df[hj_list], titanic_df.loc[hj_list]
+    
+    '''output
+    PassengerId  Survived  Pclass            Name   Sex   Age  SibSp  Parch Ticket   Fare Cabin Embarked
+    460          461         1       1  Anderson, M...  male  48.0      0      0  19952  26.55   E12        S
+    
+    PassengerId  Survived  Pclass            Name   Sex   Age  SibSp  Parch Ticket   Fare Cabin Embarked
+    460          461         1       1  Anderson, M...  male  48.0      0      0  19952  26.55   E12        S
+    '''
+    
+    titanic_df[ (titanic_df['Age'] > 60) & (titanic_df['Pclass']==1) & (titanic_df['Sex']=='female')]
+    
+    '''output
+    PassengerId  Survived  Pclass            Name     Sex   Age  SibSp  Parch  Ticket     Fare Cabin Embarked
+    275          276         1       1  Andrews, Mi...  female  63.0      1      0   13502  77.9583    D7        S
+    829          830         1       1  Stone, Mrs....  female  62.0      0      0  113572  80.0000   B28      NaN
+    '''
+    ```
                 
+### 삭제, 삽입
+- column명 지정 삭제. axis=1 같은 경우는 행 방향으로 'Class'라는 이름을 가진 column을 찾겠다
+```python
+df_copy.drop(['Time','Amount'], axis=1, inplace=True)
+```
+- index 접근을 통한 행 삭제.
+  - 하나의 index는 하나의 record(데이터 한 행)를 가리킴  
+    ```python
+    def get_outlier(df=None, column=None, weight=1.5):
+        # fraud에 해당하는 column 데이터만 추출, 1/4 분위와 3/4 분위 지점을 np.percentile로 구함. 
+        fraud = df[df['Class']==1][column]
+        quantile_25 = np.percentile(fraud.values, 25)
+        quantile_75 = np.percentile(fraud.values, 75)
+        # IQR을 구하고, IQR에 1.5를 곱하여 최대값과 최소값 지점 구함. 
+        iqr = quantile_75 - quantile_25
+        iqr_weight = iqr * weight
+        lowest_val = quantile_25 - iqr_weight
+        highest_val = quantile_75 + iqr_weight
+        # 최대값 보다 크거나, 최소값 보다 작은 값을 아웃라이어로 설정하고 DataFrame index 반환. 
+        outlier_index = fraud[(fraud < lowest_val) | (fraud > highest_val)].index
+        return outlier_index
+
+    outlier_index = get_outlier(df=df_copy, column='V14', weight=1.5)   # 위 함수는 약간 번외임. 이상치로 판정된 DataFrame.index를 return 한다는 것에 주목
+    df_copy.drop(outlier_index, axis=0, inplace=True)   # axis=0임에 주목. axis=0 방향으로 내려가면서 받은 index 값을 찾고 그 index가 가리키는 데이터(record)를 지운다
+    ```
+
 ### groupby( ) 적용
   - by 인자에 지정한 칼럼명을 기준으로 삼음
   - Aggregation 함수와 연계 가능하며 이중 count( )를 사용한것을 예로들면 Pclass가 1일때 각 칼럼별로 몇개씩 있는건지 테이블로 나옴
@@ -359,3 +384,11 @@ sidebar:
                 4  35.0  Young Adult
                 '''
                 ```
+
+### Jupyter에서 DataFrame 볼 때 생략되는것 없이 다 보는 법
+```python
+import pandas as pd
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+```
