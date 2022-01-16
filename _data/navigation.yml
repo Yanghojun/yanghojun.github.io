@@ -29,6 +29,8 @@ docs:
         url: /산탄데르 고객 만족 예측/
       - title: 신용카드 사기검출
         url: /신용카드 사기검출/
+      - title: 보스턴 주택 가격 예측
+        url: /보스턴 주택 가격 예측/
   - title: Github   # 적을때 url 앞에는 하이픈(-) 없는것에 주목.. 이걸로 2시간 날림
     children:
       - title: "fork한 저장소 잔디심기"
