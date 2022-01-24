@@ -10,9 +10,6 @@ sidebar:
     nav: "docs"     # Navigation에 있는 docs
 # search: false # 만약 이 포스트가 검색이 안되길 원한다면 주석해제
 ---
-
-# Series, DataFrame
-
 - Series는 칼럼이 한개 / DataFrame은 칼럼이 여러개
 
 # Series
@@ -39,7 +36,7 @@ sidebar:
 
 
 ## 기능
-- 정보 조회
+### 정보 조회
     
     ```python
     DataFrame.info()
@@ -391,4 +388,12 @@ import pandas as pd
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
+```
+
+### Null값 삭제 혹은 대체
+```python
+# Null 이 너무 많은 컬럼들과 불필요한 컬럼 삭제
+house_df.drop(['Id','PoolQC' , 'MiscFeature', 'Alley', 'Fence','FireplaceQu'], axis=1 , inplace=True)
+# Drop 하지 않는 숫자형 Null컬럼들은 평균값으로 대체
+house_df.fillna(house_df.mean(),inplace=True)
 ```
