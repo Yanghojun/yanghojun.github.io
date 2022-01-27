@@ -27,6 +27,9 @@
                     {% if category[0] == "깃허브" %}
                         <li><a href="/categories/깃허브" class="">깃허브 ({{category[1].size}})</a></li>
                     {% endif %}
+                    {% if category[0] == "코딩테스트" %}
+                        <li><a href="/categories/코딩테스트" class="">코딩테스트 ({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         <span class="nav__sub-title">머신러닝</span>
