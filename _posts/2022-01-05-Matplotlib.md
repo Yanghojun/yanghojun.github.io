@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "데이터 시각화"
-categories: [Machine-Learning] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
-permalink: /데이터 시각화/
-tag: [시각화, seaborn, matplotlib, python]
+title:  "Matplotlib"
+categories: [시각화] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
+permalink: /Matplotlib/
+tag: [시각화, matplotlib, python]
 toc: true
 author_profile: false # 왼쪽에 조그마한 글 나오는지 여부
 sidebar:

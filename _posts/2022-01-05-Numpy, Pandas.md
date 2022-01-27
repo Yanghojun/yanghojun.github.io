@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Numpy, Pandas"
-categories: [Machine-Learning] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
+title:  "Pandas 다루기"
+categories: [Pandas] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
 tag: [Python, Pandas, DataFrame, Numpy]
-permalink: /Numpy, Pandas/
+permalink: /Pandas 다루기/
 toc: true
 author_profile: false # 왼쪽에 조그마한 글 나오는지 여부
 sidebar:
