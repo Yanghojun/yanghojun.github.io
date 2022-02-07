@@ -38,6 +38,9 @@
                     {% if category[0] == "지도 학습" %}
                         <li><a href="/categories/지도 학습" class="">지도 학습({{category[1].size}})</a></li>
                     {% endif %}
+                    {% if category[0] == "비지도 학습" %}
+                        <li><a href="/categories/비지도 학습" class="">비지도 학습({{category[1].size}})</a></li>
+                    {% endif %}
                     {% if category[0] == "Paper-Review" %}
                         <li><a href="/categories/Paper-Review" class="">Paper-Review ({{category[1].size}})</a></li>
                     {% endif %}
@@ -55,6 +58,9 @@
                     {% endif %}
                     {% if category[0] == "Pandas" %}
                         <li><a href="/categories/Pandas" class=""> Pandas ({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "Numpy" %}
+                        <li><a href="/categories/Numpy" class=""> Numpy ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -84,7 +90,7 @@
                     {% if category[0] == "기초 지식" %}
                         <li><a href="/categories/기초 지식" class="">기초 지식({{category[1].size}})</a></li>
                     {% endif %}
-                    
+
                 {% endfor %}
             </ul>
       </li>
