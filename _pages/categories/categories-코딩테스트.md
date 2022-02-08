@@ -9,4 +9,5 @@ sidebar:
 ---
 
 {% assign posts = site.categories.["코딩테스트"] %}
-{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %} <!-- archive-single.html에서 같은 카테고리, 태그를 모아두는 역할을 함 -->
+{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %} 
+<!-- archive-single.html에서 같은 카테고리, 태그를 모아두는 역할을 함 -->
