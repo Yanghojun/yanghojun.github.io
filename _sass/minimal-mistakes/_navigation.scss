@@ -511,6 +511,7 @@
   border-radius: $border-radius;
   -webkit-box-shadow: $box-shadow;
   box-shadow: $box-shadow;
+  position:fixed;   // 스크롤 내려도 right sidebar 계속 보이게 하기위함
 
   .nav__title {
     color: #fff;
