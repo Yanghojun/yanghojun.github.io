@@ -534,8 +534,8 @@
   list-style: none;
   font-size: $type-size-6;
 
-  @include breakpoint($large) {
-    font-size: $type-size-7;
+  @include breakpoint($large) {   // 만약 전체화면으로 할 경우(그러면서 1024픽셀이 넘어갈경우!)
+    font-size: $type-size-8;    // 여기 type-size를 8로 줘서 가장 작은 글씨로 표현하게 함. 구역을 너무 많이 나눠서 rightsidebar 제대로 안보이는것 방지
   }
 
   a {
