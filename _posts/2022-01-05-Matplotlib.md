@@ -205,6 +205,30 @@ plt.show()
     
 ![png](/images/output_13_0.png)
 
+## scatter를 활용해 군집화 데이터 표현하기
+```python
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+clusterDF['meanshift_label']  = cluster_labels
+centers = meanshift.cluster_centers_
+unique_labels = np.unique(cluster_labels)
+markers=['o', 's', '^', 'x', '*']
+
+for label in unique_labels:
+    label_cluster = clusterDF[clusterDF['meanshift_label']==label]
+    center_x_y = centers[label]
+    # 군집별로 다른 마커로 산점도 적용
+    plt.scatter(x=label_cluster['ftr1'], y=label_cluster['ftr2'], edgecolor='k', marker=markers[label] )
+    
+    # 군집별 중심 표현
+    plt.scatter(x=center_x_y[0], y=center_x_y[1], s=200, color='gray', alpha=0.9, marker=markers[label])
+    plt.scatter(x=center_x_y[0], y=center_x_y[1], s=70, color='k', edgecolor='k', marker='$%d$' % label)
+    
+plt.show()
+```
+![](/images/2022-02-13-15-58-58.png)
+
 # Seaborn
 
 ## 간단한 2개 칼럼 시각화
