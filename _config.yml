@@ -108,9 +108,9 @@ author:
   location         : "South-Korea"
   email            :
   links:
-    - label: "Email: hojune0303@naver.com"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:hojune0303@naver.com"
+    # - label: "Email: hojune0303@naver.com"
+    #   icon: "fas fa-fw fa-envelope-square"
+    #   url: "mailto:hojune0303@naver.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://yanghojun.github.io"
