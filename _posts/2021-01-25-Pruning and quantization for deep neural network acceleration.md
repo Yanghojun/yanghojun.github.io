@@ -5,6 +5,7 @@ categories: [Paper-Review] # 홈페이지에서 카테고리를 통해 coding으
 tag: [pruning, neural network, state-of-art, survey, trend]
 permalink: /Pruning and quantization for deep neural network acceleration/
 toc: true
+toc_sticky: true
 author_profile: false # 왼쪽에 조그마한 글 나오는지 여부
 sidebar:
     nav: "docs"     # Navigation에 있는 docs

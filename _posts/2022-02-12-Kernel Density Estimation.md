@@ -5,6 +5,7 @@ categories: [통계학] # 홈페이지에서 카테고리를 통해 coding으로
 tag: [머신러닝, 딥러닝, 통계, 확률, 확률추정, 확률 밀도 함수]
 permalink: /Kernel Density Estimation/
 toc: true
+toc_sticky: true
 author_profile: false # 왼쪽에 조그마한 글 나오는지 여부
 sidebar:
     nav: "docs"     # Navigation에 있는 docs

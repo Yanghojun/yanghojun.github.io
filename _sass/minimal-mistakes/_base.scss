@@ -1,7 +1,3 @@
-/* ==========================================================================
-   BASE ELEMENTS
-   ========================================================================== */
-
 html {
   /* sticky footer fix */
   position: relative;
@@ -126,6 +122,8 @@ blockquote {
 /* links */
 
 a {
+  text-decoration: none;  // 블로그 밑줄 제거
+
   &:focus {
     @extend %tab-focus;
   }
@@ -168,7 +166,11 @@ td > code {
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   font-size: 0.8em;
-  background: $code-background-color;
+  // background: $code-background-color;
+  background:yellow;  // 색깔이 잘 보이게 하기 위해 노란색 배경으로 둠
+  color:blueviolet;   // 색깔 잘 보이게
+  font-weight: bold;
+
   border-radius: $border-radius;
 
   &:before,
