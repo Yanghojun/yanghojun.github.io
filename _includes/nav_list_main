@@ -105,10 +105,19 @@
                         <li><a href="/categories/Kotlin" class="">Kotlin({{category[1].size}})</a></li>
                     {% endif %}
 
-                    {% if category[0] == "Python" %}
-                        <li><a href="/categories/Python" class="">Python({{category[1].size}})</a></li>
+                    {% if category[0] == "Java" %}
+                        <li><a href="/categories/Java" class="">Java({{category[1].size}})</a></li>
                     {% endif %}
 
+                {% endfor %}
+            </ul>
+
+        <span class="nav__sub-title">FrontEnd</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "안드로이드" %}
+                        <li><a href="/categories/안드로이드" class="">안드로이드({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
       </li>
