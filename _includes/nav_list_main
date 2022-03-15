@@ -65,6 +65,9 @@
                     {% if category[0] == "Numpy" %}
                         <li><a href="/categories/Numpy" class=""> Numpy ({{category[1].size}})</a></li>
                     {% endif %}
+                    {% if category[0] == "영상처리" %}
+                        <li><a href="/categories/영상처리" class=""> 영상처리 ({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
             <ul>
