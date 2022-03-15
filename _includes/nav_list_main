@@ -84,6 +84,10 @@
                     {% if category[0] == "통계학" %}
                         <li><a href="/categories/통계학" class="">통계학({{category[1].size}})</a></li>
                     {% endif %}
+                    
+                    {% if category[0] == "기초수학" %}
+                        <li><a href="/categories/기초수학" class="">기초수학({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         
