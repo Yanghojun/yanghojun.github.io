@@ -115,6 +115,10 @@
                         <li><a href="/categories/대표 모델 정리" class="">대표 모델 정리({{category[1].size}})</a></li>
                     {% endif %}
 
+                    {% if category[0] == "Pytorch" %}
+                        <li><a href="/categories/Pytorch" class="">Pytorch({{category[1].size}})</a></li>
+                    {% endif %}
+
                 {% endfor %}
             </ul>
 
