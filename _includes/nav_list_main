@@ -35,15 +35,42 @@
         <span class="nav__sub-title">머신러닝</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "자연어 처리" %}
-                        <li><a href="/categories/자연어 처리" class="">자연어 처리({{category[1].size}})</a></li>
-                    {% endif %}
                     {% if category[0] == "지도 학습" %}
                         <li><a href="/categories/지도 학습" class="">지도 학습({{category[1].size}})</a></li>
                     {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
                     {% if category[0] == "비지도 학습" %}
                         <li><a href="/categories/비지도 학습" class="">비지도 학습({{category[1].size}})</a></li>
                     {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
+                    {% if category[0] == "시각화" %}
+                        <li><a href="/categories/시각화" class=""> 시각화 ({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "Pandas" %}
+                        <li><a href="/categories/Pandas" class=""> Pandas ({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "Numpy" %}
+                        <li><a href="/categories/Numpy" class=""> Numpy ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
+                    {% if category[0] == "자연어 처리" %}
+                        <li><a href="/categories/자연어 처리" class="">자연어 처리({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "영상처리" %}
+                        <li><a href="/categories/영상처리" class=""> 영상처리 ({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "추천시스템" %}
+                        <li><a href="/categories/추천시스템" class=""> 추천시스템 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
                     {% if category[0] == "Paper-Review" %}
                         <li><a href="/categories/Paper-Review" class="">Paper-Review ({{category[1].size}})</a></li>
                     {% endif %}
@@ -56,29 +83,15 @@
                     {% if category[0] == "캐글 대회 문제" %}
                         <li><a href="/categories/캐글 대회 문제" class="">캐글 대회 문제 ({{category[1].size}})</a></li>
                     {% endif %}
-                    {% if category[0] == "시각화" %}
-                        <li><a href="/categories/시각화" class=""> 시각화 ({{category[1].size}})</a></li>
-                    {% endif %}
-                    {% if category[0] == "Pandas" %}
-                        <li><a href="/categories/Pandas" class=""> Pandas ({{category[1].size}})</a></li>
-                    {% endif %}
-                    {% if category[0] == "Numpy" %}
-                        <li><a href="/categories/Numpy" class=""> Numpy ({{category[1].size}})</a></li>
-                    {% endif %}
-                    {% if category[0] == "영상처리" %}
-                        <li><a href="/categories/영상처리" class=""> 영상처리 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Programmers" %}
-                        <li><a href="/categories/programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
-                    {% endif %}
                 {% endfor %}
             </ul>
          <span class="nav__sub-title">인공지능 이해를 위한 수학</span>
             <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "기초수학" %}
+                        <li><a href="/categories/기초수학" class="">기초수학({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
                 {% for category in site.categories %}
                     {% if category[0] == "선형대수학" %}
                         <li><a href="/categories/선형대수학" class="">선형대수학({{category[1].size}})</a></li>
@@ -88,9 +101,6 @@
                         <li><a href="/categories/통계학" class="">통계학({{category[1].size}})</a></li>
                     {% endif %}
                     
-                    {% if category[0] == "기초수학" %}
-                        <li><a href="/categories/기초수학" class="">기초수학({{category[1].size}})</a></li>
-                    {% endif %}
                 {% endfor %}
             </ul>
         
@@ -126,7 +136,6 @@
                     {% if category[0] == "C++" %}
                         <li><a href="/categories/C++" class="">C++({{category[1].size}})</a></li>
                     {% endif %}
-
                 {% endfor %}
             </ul>
 

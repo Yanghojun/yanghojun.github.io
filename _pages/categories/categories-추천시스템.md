@@ -1,15 +1,13 @@
 ---
-title: "통계학"
+title: "추천시스템"
 layout: archive     # tag 눌렀을 때 나오는 레이아웃 형식
-permalink: categories/통계학
+permalink: categories/추천시스템
 author_profile: false
 sidebar_main: true
 sidebar:
     nav: "docs"     # Navigation에 있는 docs
 ---
 
-> [친절한 데이터 사이언티스트 되기 강좌](https://recipesds.tistory.com/)를 통해 통계 기초를 잡아보자!
-
-{% assign posts = site.categories.["통계학"] %}
+{% assign posts = site.categories.["추천시스템"] %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %} 
 <!-- archive-single.html에서 같은 카테고리, 태그를 모아두는 역할을 함 -->
