@@ -125,6 +125,10 @@
                         <li><a href="/categories/Pytorch" class="">Pytorch({{category[1].size}})</a></li>
                     {% endif %}
 
+                    {% if category[0] == "Docker" %}
+                        <li><a href="/categories/Docker" class="">Docker({{category[1].size}})</a></li>
+                    {% endif %}
+
                 {% endfor %}
             </ul>
 
