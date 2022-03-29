@@ -150,6 +150,10 @@
                     {% if category[0] == "C++" %}
                         <li><a href="/categories/C++" class="">C++({{category[1].size}})</a></li>
                     {% endif %}
+
+                    {% if category[0] == "영어" %}
+                        <li><a href="/categories/영어" class="">영어 ({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
 
