@@ -2,7 +2,7 @@
 layout: single
 title:  "Pruning and quantization for deep neural network acceleration"
 categories: [Paper-Review] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
-tag: [pruning, neural network, state-of-art, survey, trend]
+tag: [pruning, neural network, survey, trend]
 permalink: /Pruning and quantization for deep neural network acceleration/
 toc: true
 toc_sticky: true
