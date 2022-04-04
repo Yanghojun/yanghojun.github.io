@@ -115,11 +115,11 @@ CNN 기반의 이미지 제거를 위한 다양한 모델(Encoder-Decoder with r
 
 - 위 그림에서 알 수 있듯 두가지 Loss(MSE, Multi-scales perceptual loss)를 합친 Loss를 활용함.
     - Perceptual Loss는 perceptual similarity를 측정하기 위한 Loss이며 식은 다음과 같다.
-        
-<p align="center">
-<img src="/images/edcnn/Untitled%204.png">
-</p>
-        
+    
+    <p align="center">
+    <img src="/images/edcnn/Untitled%204.png">
+    </p>
+
     - 위 식은 pre-trained된 VGGnet을 이용해서 j번째 convolution에 의해 얻어진 Featuremap과의 L2 Norm을 구한다
     - pixel 각각의 값이 아닌 `Perceptual Similarity`에 집중하였기 때문에 좀 더 Detail한 부분을 잘 잡아낼 수 있다고 한다
     - 본 논문에서는 VGGnet이 아닌 Resnet50(ImageNet으로 사전학습 된)의 Featuremap을 적용한다
