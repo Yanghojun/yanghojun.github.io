@@ -12,6 +12,8 @@ sidebar:
 # search: false # 만약 이 포스트가 검색이 안되길 원한다면 주석해제
 ---
 
+[여기 사이트 꼭 한번 보자!. Gradient 어떻게 활용하면 좋을지 알려줌](https://89douner.tistory.com/313)
+
 # 로그인
 > wandb 홈페이지에 회원가입 후 API 키를 발급받는다.
 
