@@ -1,57 +1,120 @@
-# main links
-main:
-  - title: "Category"
-    url: /categories/
-  - title: "tag"
-    url: /tags/
-  - title: "Search"
-    url: /search/
+header:
+  - titles:
+      # @start locale config
+      en      : &EN       Archive
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  归档
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  歸檔
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       아카이브
+      ko-KR   : *KO
+      fr      : &FR       Archives
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Arşivdekiler
+      # @end locale config
+    url: /archive.html
 
-# 사이드 바 네비게이션
-docs:
-  - title: Machine-Learning
+  - titles:
+      # @start locale config
+      en      : &EN       About
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  关于
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  關於
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       소개
+      ko-KR   : *KO
+      fr      : &FR       À propos
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Hakkında
+      # @end locale config
+    url: /about.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Study
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  关于
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  關於
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       공부방
+      ko-KR   : *KO
+      fr      : &FR       À propos
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Hakkında
+      # @end locale config
+    url: /study.html
+
+docs-en:
+  - title:      Start
     children:
-      - title: "Numpy, Pandas"
-        url: /Numpy, Pandas/
-      - title: "데이터 시각화"
-        url: /데이터 시각화/
-      - title: "분류(Classification)"
-        url: /분류(Classification)/
-      - title: 회귀(Regression)
-        url: /회귀(Regression)/
-      - title: "평가 기법"
-        url: /평가 기법/
-      - title: 사이킷런 어려운 부분 쉽게 이해하기
-        url: /사이킷런 어려운 부분 쉽게 이해하기/
-  - title: Kaggle
+      - title:  Quick Start
+        url:    /docs/en/quick-start
+      - title:  Structure
+        url:    /docs/en/structure
+      - title:  Structure
+        url:    /docs/en/structure
+        
+  - title:      Customization
     children:
-      - title: 자전거 수요 예측
-        url: /자전거 수요 예측/
-      - title: 산탄데르 고객 만족 예측
-        url: /산탄데르 고객 만족 예측/
-      - title: 신용카드 사기검출
-        url: /신용카드 사기검출/
-      - title: 보스턴 주택 가격 예측
-        url: /보스턴 주택 가격 예측/
-      - title: 에임스 지방 주택 가격 예측
-        url: /에임스 지방 주택 가격 예측/
-  - title: Github   # 적을때 url 앞에는 하이픈(-) 없는것에 주목.. 이걸로 2시간 날림
+      - title:  Configuration
+        url:    /docs/en/configuration
+      - title:  Navigation
+        url:    /docs/en/navigation
+  - title: Collections test
     children:
-      - title: "fork한 저장소 잔디심기"
-        url: /fork한 저장소 잔디심기/
-      - title: "마크다운(Markdown) 문법"
-        url: /Markdown 문법/
-      - title: "Github 부시기"
-        url: /Github 부시기/
+      - title: Home
+        url: /
+      - title: About
+        url: /about.html
+      - title: Blog
+        url: /blog.html
+      - title: Staff
+        url: /staff.html
+
+study-nav:
+  - title: 컴퓨터 전공
+    children:
+      - title: 객체지향 프로그래밍
+        url:    /categories/main.html
+      - title: 자료구조
+      - title: 깃허브
+      - title: 코딩테스트
+      - title: 프로젝트
+  - title: 머신러닝
+  - title: 딥러닝
   - title: 인공지능 이해를 위한 수학
-    children:
-      - title: "방정식"
-        url: /방정식/
-      - title: "선형대수학"
-        url: /머신러닝, 딥러닝을 위한 선형대수학/
-      - title: "미분 성질"
-        url: /미분 성질/
-  - title: About Me
-    children:
-      - title: "첫번째 포스터"
-        url: /첫번째 포스터/
+  - title: Computer Language
+  - title: FrontEnd
