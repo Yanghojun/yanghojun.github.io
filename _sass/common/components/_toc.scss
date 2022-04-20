@@ -77,9 +77,10 @@ ul.toc {
 
 ul.toc--ellipsis {
   & > li {
-    @include overflow(hidden);
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // toc의 글씨가 넘겨지는것을 방지하기 위해 여기 주석처리 했더니 해결됨
+    // @include overflow(hidden);
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
   }
 }
 

@@ -27,7 +27,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
+lang: ko-kr # the language of your site, default as "en"
 timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -234,6 +234,75 @@ collections:
   authors:
     output: true
   
-  computer_major:
+  # 카테고리, 서브 카테고리 collection들
+  # 컴퓨터 전공
+  object_oriented:
+    output: true
+  data_structure:
+    output: true
+  github:
+    output: true
+  coding_test:
+    output: true
+  project:
+    output: true
+  jekyll_text_theme_custom:
     output: true
   
+  # 머신러닝
+  supervised_learning:
+    output: true
+  unsupervised_learning:
+    output: true
+  pandas:
+    output: true
+  numpy:
+    output: true
+  nlp:
+    output: true
+  visualization:
+    output: true
+  image_processing:
+    output: true
+  recommendation_system:
+    output: true
+  evaluation:
+    output: true
+  scikit_learn:
+    output: true
+  kaggle_competition_problem:
+    output: true
+  paper_review:
+    output: true
+  
+  # 인공지능 이해를 위한 수학
+  basic_math:
+    output: true
+  linear_algebra:
+    output: true
+  statistics:
+    output: true
+  
+  # 딥러닝
+  basic_knowledge:
+    output: true
+  basic_model_organizing:
+    output: true
+  pytorch:
+    output: true
+  docker:
+    output: true
+
+  # Computer Language
+  kotlin:
+    output: true
+  java:
+    output: true
+  python:
+    output: true
+  c_plus_plus:
+    output: true
+  english:
+    output: true
+  android:
+    output: true

@@ -108,13 +108,79 @@ study-nav:
   - title: 컴퓨터 전공
     children:
       - title: 객체지향 프로그래밍
-        url:    /categories/main.html
+        url:    /categories/object_oriented.html
       - title: 자료구조
+        url: /categories/data_structure.html
       - title: 깃허브
-      - title: 코딩테스트
+        url: /categories/github.html
+      - title: 코딩 테스트
+        url: /categories/coding_test.html
       - title: 프로젝트
+        url: /categories/project.html
+
   - title: 머신러닝
+    children:
+      - title: 지도 학습
+        url: /categories/supervised_learning.html
+      - title: 비지도 학습
+        url: /categories/unsupervised_learning.html
+      - title: 시각화
+        url: /categories/visualization.html
+      - title: Pandas
+        url: /categories/Pandas.html
+      - title: Numpy
+        url: /categories/Numpy.html
+      - title: 자연어 처리
+        url: /categories/nlp.html
+      - title: 영상 처리
+        url: /categories/image_processing.html
+      - title: 추천 시스템
+        url: /categories/recommendation_system.html
+      - title: 평가
+        url: /categories/evaluation.html
+      - title: 사이킷 런(Scikit-learn)
+        url: /categories/scikit_learn.html
+      - title: 캐글 대회 문제
+        url: /categories/kaggle_competition_problem.html
+      - title: 논문 리뷰
+        url: /categories/Paper-Review.html
+
   - title: 딥러닝
+    children:
+      - title: 기초 지식
+        url: /categories/basic_knowledge.html
+      - title: 대표 모델 정리
+        url: /categories/basic_model_organizing.html
+      - title: Pytorch
+        url: /categories/Pytorch.html
+      - title: Docker
+        url: /categories/Docker.html
+
   - title: 인공지능 이해를 위한 수학
+    children:
+      - title: 기초 수학
+        url: /categories/basic_math.html
+      - title: 선형대수학
+        url: /categories/linear_algebra.html
+      - title: 통계학
+        url: /categories/statistics.html
+
   - title: Computer Language
+    children:
+      - title: Kotlin
+        url: /categories/Kotlin.html
+      - title: Java
+        url: /categories/Java.html
+      - title: Python
+        url: /categories/Python.html
+      - title: C++
+        url: /categories/C_plus_plus.html
+      - title: 영어
+        url: /categories/english.html
+        
   - title: FrontEnd
+    children:
+      - title: 안드로이드
+        url: /categories/android.html
+      - title: jekyll-text 테마 꾸미기
+        url: /categories/jekyll_text_theme_custom.html

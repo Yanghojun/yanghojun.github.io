@@ -33,18 +33,6 @@ titles:
   </div>
 </div>
 
-<h3>Test</h3>
-<div class="layout--archive js-all"></div>
-<div class="js-result layout--archive__result d-none">
-  {% assign posts = site.categories.["hojun"]%}
-  {% for post in posts %}
-  <h2>{{post.title}}</h2>
-  {%- include article-list.html articles=site.authors type='brief' show_info=true reverse=true -%}
-  {% endfor %}
-  <!-- {%- include article-list.html articles=site.posts type='brief' show_info=true reverse=true group_by='author' -%} -->
-</div>
-</div>
-
 <script>
   {%- include scripts/archieve.js -%}
 </script>
