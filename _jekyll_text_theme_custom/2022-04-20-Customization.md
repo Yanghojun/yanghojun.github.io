@@ -12,6 +12,51 @@ sidebar:
 # 새로운 Sub Category 만들기
 
 1. navigation.yml 수정
-![](../images/2022-04-20-20-59-02.png)
 
-/![](images/2022-04-20-21-00-37.png)
+<p align="center">
+<div class="card">
+  <div class="card__image">
+    <img class="image" src="../images/20220421010005.png"/>
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      위 네비게이션에 필요한 소제목, URL 지정이 필요하다
+    </div>
+  </div>
+</div>
+</p>
+
+| /_data/navigation.xml 파일
+
+```yaml
+study-nav:
+  - title: 컴퓨터 전공
+    children:
+      - title: 객체지향 프로그래밍
+        url:    /categories/object_oriented.html
+```
+
+2. collection 지정
+
+collection이 아직 자세히 무슨 역할을 하는것인지는 모르겠지만 collection을 활용해서 원하는 포스트들만 뜨게 할 수 있다.
+
+| _config.yml
+
+```yaml
+collections:
+  categories:
+    output: true
+  
+  # 카테고리, 서브 카테고리 collection들
+  # 컴퓨터 전공
+  object_oriented:
+    output: true
+  data_structure:
+    output: true
+  github:
+    output: true
+```
+
+<p align="center">
+    <img src="../images/20220421011557.png" width="50%">
+</p>
