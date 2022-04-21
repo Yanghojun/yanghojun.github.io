@@ -124,6 +124,8 @@ study-nav:
         url: /categories/supervised_learning.html
       - title: 비지도 학습
         url: /categories/unsupervised_learning.html
+      - title: 데이터 전처리
+        url: /categories/data_preprocessing.html
       - title: 시각화
         url: /categories/visualization.html
       - title: Pandas
@@ -177,6 +179,8 @@ study-nav:
         url: /categories/C_plus_plus.html
       - title: 영어
         url: /categories/english.html
+      - title: VSCODE
+        url: /categories/vscode.html
         
   - title: FrontEnd
     children:

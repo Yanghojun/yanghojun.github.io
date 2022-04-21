@@ -84,8 +84,8 @@ toc:
 ## => Markdown Enhancements
 ##############################
 ## Mathjax
-mathjax: # false (default), true
-mathjax_autoNumber: # false (default), true
+mathjax: true # false (default), true
+mathjax_autoNumber: true # false (default), true
 
 ## Mermaid
 mermaid: # false (default), true
@@ -251,6 +251,8 @@ collections:
     output: true
   unsupervised_learning:
     output: true
+  data_preprocessing:
+    output: true
   pandas:
     output: true
   numpy:
@@ -290,7 +292,7 @@ collections:
   docker:
     output: true
 
-  # Computer Language
+  # Computer Language & Tools
   kotlin:
     output: true
   java:
@@ -301,5 +303,9 @@ collections:
     output: true
   english:
     output: true
+  vscode:
+    output: true
+  
+  # FrontEnd
   android:
     output: true

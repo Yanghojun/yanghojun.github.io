@@ -19,13 +19,9 @@ import matplotlib.pyplot as plt
 plt.plot([2, 3, 5, 10])     # list, tuple, numpy 같은 Array 입력받을 수 있음
 plt.show()  # x 값은 기본적으로 [0, 1, 2, 3]이 됨
 ```
-
-
     
 ![png](/images/output_1_0.png)
     
-
-
 
 ```python
 import matplotlib.pyplot as plt

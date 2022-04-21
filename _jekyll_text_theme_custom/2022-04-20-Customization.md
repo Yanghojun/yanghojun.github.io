@@ -11,7 +11,7 @@ sidebar:
 
 # 새로운 Sub Category 만들기
 
-1. navigation.yml 수정
+- navigation.yml 수정
 
 <p align="center">
 <div class="card">
@@ -36,7 +36,7 @@ study-nav:
         url:    /categories/object_oriented.html
 ```
 
-2. collection 지정
+- collection 지정
 
 collection이 아직 자세히 무슨 역할을 하는것인지는 모르겠지만 collection을 활용해서 원하는 포스트들만 뜨게 할 수 있다.
 
@@ -57,6 +57,10 @@ collections:
     output: true
 ```
 
+
+- collection 이름과 같은(단, 언더바는 빼야함) 디렉토리 생성 후 포스터 작성
 <p align="center">
     <img src="../images/20220421011557.png" width="50%">
 </p>
+
+
