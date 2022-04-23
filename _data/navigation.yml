@@ -167,7 +167,7 @@ study-nav:
       - title: 통계학
         url: /categories/statistics.html
 
-  - title: Computer Language
+  - title: Computer Language & Tools
     children:
       - title: Kotlin
         url: /categories/Kotlin.html
