@@ -241,6 +241,8 @@ collections:
     output: true
   coding_test:
     output: true
+  linux:
+    output: true
   project:
     output: true
   jekyll_text_theme_custom:

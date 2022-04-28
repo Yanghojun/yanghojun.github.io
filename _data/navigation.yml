@@ -115,6 +115,8 @@ study-nav:
         url: /categories/github.html
       - title: 코딩 테스트
         url: /categories/coding_test.html
+      - title: 리눅스
+        url: /categories/linux.html
       - title: 프로젝트
         url: /categories/project.html
 
