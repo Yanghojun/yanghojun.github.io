@@ -60,12 +60,15 @@ html,
 
 .page__aside {
   .toc-aside {
+    overflow-y: scroll;
     padding: map-get($spacers, 5) 0 map-get($spacers, 3) map-get($spacers, 5);
+    // padding: map-get($spacers, 3) 0 map-get($spacers, 1) map-get($spacers, 5);    // 시계방향 인듯 함
   }
 }
 
 .page__actions {
   position: fixed;
+  // position: relative;    // 뭘 해야 scroll이 되게 할 수 있으려나..
   bottom: map-get($spacers, 5);
   left: map-get($spacers, 3);
   z-index: map-get($z-indexes, actions);
