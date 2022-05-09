@@ -60,7 +60,7 @@ html,
 
 .page__aside {
   .toc-aside {
-    overflow-y: scroll;
+    // overflow-y: scroll;   // 이거 하면 x 방향으로 스크롤 생김. y 방향은 어케해야하지..
     padding: map-get($spacers, 5) 0 map-get($spacers, 3) map-get($spacers, 5);
     // padding: map-get($spacers, 3) 0 map-get($spacers, 1) map-get($spacers, 5);    // 시계방향 인듯 함
   }

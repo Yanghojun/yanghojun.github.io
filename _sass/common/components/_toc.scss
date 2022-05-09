@@ -16,7 +16,7 @@ ul.toc {
   .toc-h3,
   .toc-h4,
   .toc-h5,
-  .toc-h6 {
+  .toc-h6 {   // 여긴 공통속성 지정하는 것으로 보임
     a {
       @include link-colors($text-color, $main-color-1);
     }
@@ -31,7 +31,7 @@ ul.toc {
   .toc-h3,
   .toc-h4,
   .toc-h5,
-  .toc-h6 {
+  .toc-h6 {   // h1을 제외한 나머지 속성 지정하는 것으로 보임
     &, a {
       font-size: map-get($base, font-size-xs);
       font-weight: map-get($base, font-weight);
@@ -39,7 +39,7 @@ ul.toc {
     }
   }
   .toc-h1 {
-    @include split-line(bottom);
+    @include split-line(bottom);    // h1 에만 줄긋기
     padding: map-get($spacers, 2) 0 map-get($spacers, 1) 0;
     margin-bottom: map-get($spacers, 2);
     color: $text-color-d;
@@ -53,6 +53,7 @@ ul.toc {
     }
   }
   .toc-h2 {
+    margin-left: map-get($spacers, 2);    // 여백 만들기
     &, a {
       font-weight: map-get($base, font-weight-bold);
     }
@@ -61,11 +62,14 @@ ul.toc {
     margin-left: map-get($spacers, 3);
   }
   .toc-h4 {
-    margin-left: map-get($spacers, 3) * 2;
+    // margin-left: map-get($spacers, 3) * 2;
+    margin-left: map-get($spacers, 4);
   }
-  .toc-h5,
+  .toc-h5{
+    margin-left: map-get($spacers, 5);
+  }
   .toc-h6 {
-    margin-left: map-get($spacers, 3) * 3;
+    margin-left: map-get($spacers, 6)
   }
   .toc-h6 {
     color: $text-color-l;

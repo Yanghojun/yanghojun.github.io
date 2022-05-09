@@ -34,9 +34,9 @@
       }
     }
   }
-  h1,
-  h2 {
-    @include split-line(bottom);
+  h1
+  {
+    @include split-line(bottom);   // 포스터 글 중 h1 밑에만 밑줄이 가도록 함
   }
   hr {
     border: none;

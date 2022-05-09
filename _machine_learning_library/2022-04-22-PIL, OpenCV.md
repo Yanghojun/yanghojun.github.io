@@ -1,28 +1,26 @@
 ---
 layout: article
-title:  "이미지 전처리"
+title:  "PIL, OpenCV"
 categories: [opencv, PIL] # 홈페이지에서 카테고리를 통해 coding으로 지정되어있는 포스트들을 한번에 볼 수 있다
-tag: [이미지 전처리, 영상처리, python, pytorch]
-permalink: /이미지 전처리/
+tag: [PIL, OpenCV, 영상처리, python]
+permalink: /PIL, OpenCV/
 aside:
     toc: true
 sidebar:
     nav: "study-nav"
 ---
 
-# PIL vs OpenCV
-
-## PIL
+# PIL
 - RGB로 이미지를 읽어와서 torchvision과의 조화가 좋음
 - numpy array와의 암묵적 casting이 되지 않아서 numpy array를 Image array로 변경해줘야 함
 
-### numpy to tensor
+## numpy to tensor
 | torch.from_numpy(ndarray:numpy.ndarray)
 
-### tensor to numpy
+## tensor to numpy
 | tensor_data.numpy()
 
-### tensor to PILImage
+## tensor to PILImage
 ```python
 import torchvision.transforms as T
 
@@ -30,13 +28,13 @@ trans = T.TOPILImage()
 image_data = trans(tensor_data)
 ```
 
-## OpenCV
+# OpenCV
 - OpenCV는 BGR로 읽어옴
 - 이미지 처리에 필요한 거의 모든 함수 지원
 - numpy array 인덱싱을 이용해 직관적인 이미지 전처리 가능
 - Video capture 같은 기능의 지원이 잘 되어 있음
 
-### 마스킹(Masking)
+## 마스킹(Masking)
 
 마스킹 작업을 하기 전 각 픽셀들의 데이터 타입을 uint8로 지정해주는 것이 좋다.
 {:.info}
@@ -47,9 +45,9 @@ import numpy as np
 # Numpy의 경우
 arr = arr.astype(np.uint8)
 ```
-#### 이미지 임계처리
+### 이미지 임계처리
 
-##### Simple thresholding
+#### Simple thresholding
 
 특정 기준치 넘기면 지정해둔 maxvalue로 값 치환
 
@@ -80,7 +78,7 @@ plt.show()
 <p align="center"> <img src="../images/20220502172526.png" width="70%"> </p>
 위 그림에서 볼 수 있듯 thresholding type 파라미터를 활용하여 이진화가 아닌 gradual한 이미지 출력도 가능하다.
 
-##### Adaptive thresholding
+#### Adaptive thresholding
 
 이미지별로 빛의 세기, 분포가 다르기에 threshold 입력된 이미지마다 적절히 주기 위함
 
@@ -118,7 +116,7 @@ plt.show()
 <p align="center"> <img src="../images/20220502173445.png" width="75%"> </p>
 
 
-##### Otsu binarization
+#### Otsu binarization
 
 히스토그램에서 2개의 peak가 있는 이미지가 있을 경우 이진화를 위한 threshold 값을 상당히 정확하게 구해줌
 
@@ -157,86 +155,3 @@ plt.show()
 <p align="center"> <img src="../images/20220502175500.png" width="70%"> </p>
 
 위 그림의 마지막 row는 noise를 gausian blur를 활용해 제거한 뒤 otsu 이진화를 진행한것이다.
-
-
-# torchvision.transforms 활용
-
-## torchvision.transforms.Compose
-
-여러개의 전처리 작업을 한번에 묶기 위함
-
-```python
->>> transforms.Compose([
->>>     transforms.CenterCrop(10),
->>>     transforms.PILToTensor(),
->>>     transforms.ConvertImageDtype(torch.float),
->>> ])
-```
-
-
-```python
-import io
-
-import requests
-import torchvision.transforms as T
-
-from PIL import Image
-
-img = Image.open('./data/cat1.jpg')
-
-width, height= img.size
-
-preprocess = T.Compose([
-   T.Resize(256),
-   T.CenterCrop(50),
-   T.ToTensor(),
-#    T.Normalize(
-#        mean=[0.485, 0.456, 0.406],
-#        std=[0.229, 0.224, 0.225]
-#    )
-])
-
-x = preprocess(img)
-
-# Expected result
-# torch.Size([3, 224, 224])
-```
-
-# 바운딩박스 좌표 읽어서 이미지 자르는 예시
-
-
-```python
-import json
-
-def get_coor_from_json(path):
-    with open(path) as f:
-        raw_data = json.load(f)
-        print(raw_data)
-
-    return raw_data['shapes'][0]['points']
-        
-
-box_coor = get_coor_from_json('./cat1.json')    #[[x1, y1], [x2, y2]]
-
-img = Image.open('./data/cat1.jpg')
-
-x1,y1,x2,y2 = box_coor[0][0], box_coor[0][1], box_coor[1][0], box_coor[1][1]
-print(x1, y1, x2, y2)
-img = img.crop([x1, y1, x2, y2])
-img.show()
-```
-
-    {'version': '5.0.1', 'flags': {}, 'shapes': [{'label': 'normal', 'points': [[171.99999999999997, 46.666666666666664], [333.8181818181818, 172.72727272727272]], 'group_id': None, 'shape_type': 'rectangle', 'flags': {}}], 'imagePath': 'data\\cat1.jpg', 'imageData': None, 'imageHeight': 408, 'imageWidth': 612}
-    171.99999999999997 46.666666666666664 333.8181818181818 172.72727272727272
-    
-
-
-```python
-img = Image.open('./data/cat1.jpg')
-
-width, height = img.size
-
-img = img.crop([0,0,width/2,height/2])
-img.show()
-```
-

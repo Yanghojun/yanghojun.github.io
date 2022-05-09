@@ -8,8 +8,10 @@ $base: (
   font-size-xl:           1.5rem,
   font-size-lg:           1.25rem,
   font-size:              1rem,
-  font-size-sm:           0.85rem,
-  font-size-xs:           .9rem,
+  // font-size-sm:           0.85rem,   // 오른쪽 sidebar 폰트크기 수정
+  font-size-sm:           0.75rem,
+  // font-size-xs:           .9rem,
+  font-size-xs:           .8rem,
 
   font-size-h1-xl:        3.5rem,
   font-size-h2-xl:        2.5rem,
@@ -25,12 +27,12 @@ $base: (
   font-size-h5-lg:        1.25rem,
   font-size-h6-lg:        1.25rem,
 
-  font-size-h1:           2.5rem,
-  font-size-h2:           1.9rem,
-  font-size-h3:           1.5rem,
-  font-size-h4:           1.2rem,
-  font-size-h5:           1rem,
-  font-size-h6:           1rem,
+  font-size-h1:           2.2rem,
+  font-size-h2:           1.6rem,
+  font-size-h3:           1.2rem,
+  font-size-h4:           0.9rem,
+  font-size-h5:           0.7rem,
+  font-size-h6:           0.7rem,
 
   font-size-h1-sm:        2rem,
   font-size-h2-sm:        1.5rem,
