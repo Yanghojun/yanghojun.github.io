@@ -155,3 +155,41 @@ plt.show()
 <p align="center"> <img src="../images/20220502175500.png" width="70%"> </p>
 
 위 그림의 마지막 row는 noise를 gausian blur를 활용해 제거한 뒤 otsu 이진화를 진행한것이다.
+
+# 바운딩박스 좌표 읽어서 이미지 자르는 예시
+
+
+```python
+import json
+
+def get_coor_from_json(path):
+    with open(path) as f:
+        raw_data = json.load(f)
+        print(raw_data)
+
+    return raw_data['shapes'][0]['points']
+        
+
+box_coor = get_coor_from_json('./cat1.json')    #[[x1, y1], [x2, y2]]
+
+img = Image.open('./data/cat1.jpg')
+
+x1,y1,x2,y2 = box_coor[0][0], box_coor[0][1], box_coor[1][0], box_coor[1][1]
+print(x1, y1, x2, y2)
+img = img.crop([x1, y1, x2, y2])
+img.show()
+```
+
+    {'version': '5.0.1', 'flags': {}, 'shapes': [{'label': 'normal', 'points': [[171.99999999999997, 46.666666666666664], [333.8181818181818, 172.72727272727272]], 'group_id': None, 'shape_type': 'rectangle', 'flags': {}}], 'imagePath': 'data\\cat1.jpg', 'imageData': None, 'imageHeight': 408, 'imageWidth': 612}
+    171.99999999999997 46.666666666666664 333.8181818181818 172.72727272727272
+    
+
+
+```python
+img = Image.open('./data/cat1.jpg')
+
+width, height = img.size
+
+img = img.crop([0,0,width/2,height/2])
+img.show()
+```

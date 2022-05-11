@@ -293,8 +293,6 @@ collections:
     output: true
   deep_learning_library:
     output: true
-  pytorch:
-    output: true
   docker:
     output: true
 
