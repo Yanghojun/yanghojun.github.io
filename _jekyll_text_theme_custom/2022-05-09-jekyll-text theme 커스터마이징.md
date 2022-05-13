@@ -52,3 +52,11 @@ h1
 }
 ```
 <div align="center"> _reset.scss 파일 </div>
+
+- highlight 글자 색깔 변경
+
+`이 하이라이트 색깔 바꾸는 것임`
+
+<p align="center"> <img src="../images/20220512141420.png" width="60%"> </p>
+<div align="center" markdown="1"> _article-content.scss 
+</div>
