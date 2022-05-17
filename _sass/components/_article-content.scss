@@ -73,7 +73,7 @@
   }
   code {
     color:rgb(0, 255, 242);
-    padding: map-get($spacers, 1) map-get($spacers, 2);
+    padding: map-get($spacers, 1) map-get($spacers, 1);
     // background-color: $text-background-color;
     background-color: rgb(60, 74, 77);
     border-radius: map-get($base, border-radius);

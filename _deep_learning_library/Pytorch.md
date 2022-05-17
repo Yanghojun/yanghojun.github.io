@@ -492,10 +492,36 @@ wandb.login()       # 주피터 노트북으로 발급받은 키 입력
 
 
 
-## 실험 환경 셋팅
-> 추적할 metadata, hyperparameter 지정 필요
+## Reproductibility(재현성)을 높이기 위한 코드
+
+- mnist dataset도 여기서 받음
+
+
+```python
+import os
+import random
+
+import numpy as np
+import torch
+import torch.nn as nn
+import torchvision
+import torchvision.transforms as transforms
+from tqdm.notebook import tqdm
+
+torch.backends.cudnn.deterministic = True       # 재현성(Reproductibility)을 위함. 학습할 때 마다 결과 달라지는것 방지
+random.seed(hash("setting random seeds") % 2**32 - 1)
+np.random.seed(hash("improves reproducibility") % 2**32 - 1)
+torch.manual_seed(hash("by removing stochasticity") % 2**32 - 1)        # torch.rand(), torch.randn(), torch.randint(), torch.randperm() 에 영향을 줌
+torch.cuda.manual_seed_all(hash("so runs are repeatable") % 2**32 - 1)  # gpu 랜덤시드 초기화인데 multi gpu까지 고려한것
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+torchvision.datasets.MNIST.mirrors = [mirror for mirror in torchvision.datasets.MNIST.mirrors if not mirror.startswith("http://yann.lecun.com")]
+```
+
+## wandb 설정
 
 - 딥러닝 모델 초기 설정에 많이 자주 쓰이는 yaml file, config file등 여러 방법으로 초기 환경셋팅이 가능하며 튜토리얼에서는 Dictionary 형태로 환경셋팅을 진행
+- wandb에 쓰이지는 않지만 아래와 같은 방법으로 초기 모델 하이퍼 파라미터를 지정해주는것이 개발할 때 좋음
 
 
 ```python
@@ -509,11 +535,17 @@ config = dict(
     architecture="CNN")
 ```
 
-## 딥러닝 모델 관련 환경설정
-
 ### wandb.init
 
-- 위에서 meat-data, hyperparameter 값이 들어있는 dictionary 데이터를 정의했으므로 해당 데이터가 아래 함수에서 제역할을 할 것임
+- wandb를 실행시킴. 어떤 Repository에서 실행시킬지, 어떤 항목들을 tracking 할 지 등의 초기화 담당
+- 주로 사용되는 파라미터
+  - `project: (str, optional)`: run할 Repository 이름
+  - `config: (dict, argparse, absl.flags, str, optional)` : tracking 할것들 지정  
+
+<p align="center"> <img src="../images/20220517212403.png" width="75%"> </p>
+
+<div align="center" markdown="1"> 위 그림에서 볼 수 있듯 table로 항목들 살펴보면 column들에 config 항목들이 추가되어 있는것을 확인할 수 있다.  좌측의 clean-sponge-7, playful-brook-5 등은 동일한 repository에서 진행한 여러 다른 실험 결과들이다. 
+</div>
 
 
 ```python
@@ -562,13 +594,12 @@ def get_data(slice=5, train=True):
                                               train=train, 
                                               transform=transforms.ToTensor(),
                                               download=True)
-    #  equiv to slicing with [::slice] 
+    # equiv to slicing with [::slice] 
     # Dataset 클래스(__getitem__, __len__을 가지는)를 여러개의 클래스로 쪼갠것으로 보임
     sub_dataset = torch.utils.data.Subset(
       full_dataset, indices=range(0, len(full_dataset), slice))
     
     return sub_dataset
-
 
 def make_loader(dataset, batch_size):
     loader = torch.utils.data.DataLoader(dataset=dataset,
@@ -602,12 +633,25 @@ class ConvNet(nn.Module):
         return out
 ```
 
-### Training 관련 설정
+### wandb.watch
 
-#### wandb.watch, wandb.log
+- `wandb.watch`: torch model의 gradient 등을 tracking 하기위해 사용됨
+  - 관련 파라미터
+    - `models: (torch.Module, optional)`: pytorch 기반 딥러닝 모델
+    - `criterion: (torch.F, optional)`: loss 함수
+    - `log(str)`: gradients, parameter 중에 하나를 기입 가능하며, all을 통해 둘 다 조회 할 수도 있음
 
+<p align="center"> <img src="../images/20220517212453.png" width="70%"> </p>
 
-- 어떻게 학습을 진행할것인지 설정해줘야함
+<div align="center" markdown="1"> wandb 홈페이지에서 gradient, parameter 관련 그래프 조회 가능 
+</div>
+
+### wandb.log
+
+- `wandb.log`: python dictionary 타입으로 인자를 넘기며, wandb 홈페이지에서 그래프로 출력하고 싶은 값 들을 적으면 됨
+  - 관련 파라미터
+    - `step:(int, optional)`: 몇 step마다 그래프로 찍을 것인지 나타냄. 값이 작을수록 촘촘한 그래프가 완성될것임
+
 - wandb의 `watch`, `log` 활용됨
   - watch: log_freq마다 gradient, parameter 로그 남기는데 활용됨
   - log: 나머지 값들 로그 남기는데 활용됨
@@ -656,11 +700,9 @@ def train_log(loss, example_ct, epoch):
     print(f"Loss after " + str(example_ct).zfill(5) + f" examples: {loss:.3f}")
 ```
 
-### Test 관련 설정
+### wandb.save
 
-#### wandb.save
-
-- 이 함수를 통해 w&b 사이트에 model parameter 저장해서 언제든 불러올 수 있게됨
+- `wandb.save`: 모델 가중치, log, 코드등을 저장할 수 있게 해줌.
 
 
 ```python
@@ -687,8 +729,7 @@ def test(model, test_loader):
     wandb.save("model.onnx")
 ```
 
-## 실행!
-
+- 실행!
 
 ```python
 # Build, train and analyze the model with the pipeline
@@ -696,15 +737,20 @@ model = model_pipeline(config)
 ```
 
 
+wandb version 0.12.16 is available!  To upgrade, please run:
+ $ pip install wandb --upgrade
+
+
+
 Tracking run with wandb version 0.12.11
 
 
 
-Run data is saved locally in <code>d:\Work\Study\wandb\wandb\run-20220320_020806-3jvokey8</code>
+Run data is saved locally in <code>d:\Work\Study\wandb\wandb\run-20220517_200748-2gveead3</code>
 
 
 
-Syncing run <strong><a href="https://wandb.ai/javis-team/pytorch-demo/runs/3jvokey8" target="_blank">clean-sponge-7</a></strong> to <a href="https://wandb.ai/javis-team/pytorch-demo" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/>
+Syncing run <strong><a href="https://wandb.ai/javis-team/pytorch-demo/runs/2gveead3" target="_blank">mild-snow-9</a></strong> to <a href="https://wandb.ai/javis-team/pytorch-demo" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/>
 
 
     ConvNet(
@@ -726,25 +772,25 @@ Syncing run <strong><a href="https://wandb.ai/javis-team/pytorch-demo/runs/3jvok
       0%|          | 0/5 [00:00<?, ?it/s]
 
 
-    Loss after 03072 examples: 0.383
-    Loss after 06272 examples: 0.174
-    Loss after 09472 examples: 0.129
-    Loss after 12640 examples: 0.052
-    Loss after 15840 examples: 0.080
-    Loss after 19040 examples: 0.092
-    Loss after 22240 examples: 0.133
-    Loss after 25408 examples: 0.070
-    Loss after 28608 examples: 0.112
-    Loss after 31808 examples: 0.039
-    Loss after 35008 examples: 0.023
-    Loss after 38176 examples: 0.027
-    Loss after 41376 examples: 0.035
-    Loss after 44576 examples: 0.042
-    Loss after 47776 examples: 0.017
-    Loss after 50944 examples: 0.024
-    Loss after 54144 examples: 0.051
-    Loss after 57344 examples: 0.012
-    Accuracy of the model on the 2000 test images: 97.3%
+    Loss after 03072 examples: 0.470
+    Loss after 06272 examples: 0.261
+    Loss after 09472 examples: 0.142
+    Loss after 12640 examples: 0.113
+    Loss after 15840 examples: 0.045
+    Loss after 19040 examples: 0.114
+    Loss after 22240 examples: 0.046
+    Loss after 25408 examples: 0.030
+    Loss after 28608 examples: 0.111
+    Loss after 31808 examples: 0.060
+    Loss after 35008 examples: 0.026
+    Loss after 38176 examples: 0.036
+    Loss after 41376 examples: 0.048
+    Loss after 44576 examples: 0.016
+    Loss after 47776 examples: 0.010
+    Loss after 50944 examples: 0.016
+    Loss after 54144 examples: 0.066
+    Loss after 57344 examples: 0.017
+    Accuracy of the model on the 2000 test images: 98.05%
     
     
 
@@ -753,7 +799,7 @@ Waiting for W&B process to finish... <strong style="color:green">(success).</str
 
 
 
-    VBox(children=(Label(value='0.112 MB of 0.112 MB uploaded (0.000 MB deduped)\r'), FloatProgress(value=1.0, max…
+    VBox(children=(Label(value='0.001 MB of 0.112 MB uploaded (0.000 MB deduped)\r'), FloatProgress(value=0.008004…
 
 
 
@@ -762,19 +808,19 @@ Waiting for W&B process to finish... <strong style="color:green">(success).</str
     .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }
     .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
     </style>
-<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>epoch</td><td>▁▁▁▃▃▃▃▅▅▅▅▆▆▆▆███</td></tr><tr><td>loss</td><td>█▄▃▂▂▂▃▂▃▁▁▁▁▂▁▁▂▁</td></tr><tr><td>test_accuracy</td><td>▁</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>epoch</td><td>4</td></tr><tr><td>loss</td><td>0.01246</td></tr><tr><td>test_accuracy</td><td>0.973</td></tr></table><br/></div></div>
+<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>epoch</td><td>▁▁▁▃▃▃▃▅▅▅▅▆▆▆▆███</td></tr><tr><td>loss</td><td>█▅▃▃▂▃▂▁▃▂▁▁▂▁▁▁▂▁</td></tr><tr><td>test_accuracy</td><td>▁</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>epoch</td><td>4</td></tr><tr><td>loss</td><td>0.01722</td></tr><tr><td>test_accuracy</td><td>0.9805</td></tr></table><br/></div></div>
 
 
 
-Synced  
-<strong style="color:#cdcd00">clean-sponge-7</strong>: <a href="https://wandb.ai/javis-team/pytorch-demo/runs/3jvokey8" target="_blank">https://wandb.ai/javis-team/pytorch-demo/runs/3jvokey8</a><br/>Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
+Synced <strong style="color:#cdcd00">mild-snow-9</strong>: <a href="https://wandb.ai/javis-team/pytorch-demo/runs/2gveead3" target="_blank">https://wandb.ai/javis-team/pytorch-demo/runs/2gveead3</a><br/>Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 1 other file(s)
 
 
 
-Find logs at: <code>.\wandb\run-20220320_020806-3jvokey8\logs</code>
+Find logs at: <code>.\wandb\run-20220517_200748-2gveead3\logs</code>
 
 
 - 위 출력을 통해 나오는 링크를 들어가면 wandb와 연결되며 web을 통해 gradientes, parameters, 지정한 값 들에 대한 변화도 등을 볼 수 있다
+
 
 <p align="center">
     <img src="/images/2022-03-20-02-52-20.png" width="90%">
