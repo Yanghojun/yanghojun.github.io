@@ -71,11 +71,12 @@
       margin-top: map-get($spacers, 2) * 2;
     }
   }
-  code {
-    color:rgb(0, 255, 242);
+  code {    // 이게 inline code
+    color:rgb(255, 0, 0);
+    font-weight: bolder;
     padding: map-get($spacers, 1) map-get($spacers, 1);
     // background-color: $text-background-color;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(158, 158, 158, 0.24);
     border-radius: map-get($base, border-radius);
     span {
       padding: 0;
@@ -107,6 +108,7 @@
       border-radius: map-get($base, border-radius);
       & > code {
         display: block;
+        color:rgb(255, 255, 255);
       }
     }
   }

@@ -12,6 +12,7 @@ sidebar:
 
 # Wandb-Pytorch 연계
 
+[wandb 블로그 자체 포스트이며, 전체적으로 개념을 잡아줌](https://wandb.ai/wandb_fc/korean/reports/Weights-Biases-Data-Science---Vmlldzo4MDEwNzc)
 [여기 사이트 꼭 한번 보자!. Gradient 어떻게 활용하면 좋을지 알려줌](https://89douner.tistory.com/313)  
 [여기는 wandb 친절하게 설명해준 사이트](https://pebpung.github.io/wandb/2021/10/06/WandB-1.html)
 
