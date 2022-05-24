@@ -84,9 +84,9 @@ wandb.login()       # 주피터 노트북으로 발급받은 키 입력
 
 - wandb를 실행시킴. 어떤 Repository에서 실행시킬지, 어떤 항목들을 tracking 할 지 등의 초기화 담당
 - 주로 사용되는 파라미터
-  - `project: (str, optional)`: run할 Repository 이름
-  - `name: (str, optional)`: 현재 진행하는 실험 이름. (실험 이름 정도로 생각하면 됨. 하나의 project에서 다양한 실험이 가능함. 이게 여러 그래프에서 하나의 색깔을 가리키는 id가 됨)
-  - `config: (dict, argparse, absl.flags, str, optional)` : tracking 할것들 지정  
+  - `project:(str, optional)`: run할 Repository 이름
+  - `name:(str, optional)`: 현재 진행하는 실험 이름. (실험 이름 정도로 생각하면 됨. 하나의 project에서 다양한 실험이 가능함. 이게 여러 그래프에서 하나의 색깔을 가리키는 id가 됨)
+  - `config:(dict, argparse, absl.flags, str, optional)` : tracking 할것들 지정  
 
 <p align="center"> <img src="../images/20220517212403.png" width="75%"> </p>
 
@@ -183,8 +183,8 @@ class ConvNet(nn.Module):
 
 - `wandb.watch`: torch model의 gradient 등을 tracking 하기위해 사용됨
   - 관련 파라미터
-    - `models: (torch.Module, optional)`: pytorch 기반 딥러닝 모델
-    - `criterion: (torch.F, optional)`: loss 함수
+    - `models:(torch.Module, optional)`: pytorch 기반 딥러닝 모델
+    - `criterion:(torch.F, optional)`: loss 함수
     - `log(str)`: gradients, parameter 중에 하나를 기입 가능하며, all을 통해 둘 다 조회 할 수도 있음
 
 <p align="center"> <img src="../images/20220517212453.png" width="70%"> </p>
@@ -283,20 +283,11 @@ model = model_pipeline(config)
 ```
 
 
-wandb version 0.12.16 is available!  To upgrade, please run:
- $ pip install wandb --upgrade
-
-
-
-Tracking run with wandb version 0.12.11
-
-
-
-Run data is saved locally in <code>d:\Work\Study\wandb\wandb\run-20220517_200748-2gveead3</code>
-
-
-
-Syncing run <strong><a href="https://wandb.ai/javis-team/pytorch-demo/runs/2gveead3" target="_blank">mild-snow-9</a></strong> to <a href="https://wandb.ai/javis-team/pytorch-demo" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/>
+    wandb version 0.12.16 is available!  To upgrade, please run:
+    $ pip install wandb --upgrade
+    Tracking run with wandb version 0.12.11
+    Run data is saved locally in <code>d:\Work\Study\wandb\wandb\run-20220517_200748-2gveead3</code>
+    Syncing run <strong><a href="https://wandb.ai/javis-team/pytorch-demo/runs/2gveead3" target="_blank">mild-snow-9</a></strong> to <a href="https://wandb.ai/javis-team/pytorch-demo" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/>
 
 
     ConvNet(
@@ -340,9 +331,9 @@ Syncing run <strong><a href="https://wandb.ai/javis-team/pytorch-demo/runs/2gvee
     
     
 
-
+<code markdown='1'>
 Waiting for W&B process to finish... <strong style="color:green">(success).</strong>
-
+</code>
 
 
     VBox(children=(Label(value='0.001 MB of 0.112 MB uploaded (0.000 MB deduped)\r'), FloatProgress(value=0.008004…
@@ -354,7 +345,8 @@ Waiting for W&B process to finish... <strong style="color:green">(success).</str
     .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }
     .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
     </style>
-<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>epoch</td><td>▁▁▁▃▃▃▃▅▅▅▅▆▆▆▆███</td></tr><tr><td>loss</td><td>█▅▃▃▂▃▂▁▃▂▁▁▂▁▁▁▂▁</td></tr><tr><td>test_accuracy</td><td>▁</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>epoch</td><td>4</td></tr><tr><td>loss</td><td>0.01722</td></tr><tr><td>test_accuracy</td><td>0.9805</td></tr></table><br/></div></div>
+<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>epoch</td><td>▁▁▁▃▃▃▃▅▅▅▅▆▆▆▆███</td></tr><tr><td>loss</td><td>█▅▃▃▂▃▂▁▃▂▁▁▂▁▁▁▂▁</td></tr><tr><td>test_accuracy</td><td>▁</td></tr></table><br/></div><div 
+class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>epoch</td><td>4</td></tr><tr><td>loss</td><td>0.01722</td></tr><tr><td>test_accuracy</td><td>0.9805</td></tr></table><br/></div></div>
 
 
 

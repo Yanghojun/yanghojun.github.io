@@ -87,6 +87,7 @@
     @include overflow(auto);
     & > code {
       padding: 0;
+      font-weight: normal;
       word-wrap: normal;
       background-color: transparent;
       &.language-mermaid, &.language-chart {
@@ -108,7 +109,7 @@
       border-radius: map-get($base, border-radius);
       & > code {
         display: block;
-        color:rgb(255, 255, 255);
+        color:rgba(255, 255, 255, 0.856);
       }
     }
   }
