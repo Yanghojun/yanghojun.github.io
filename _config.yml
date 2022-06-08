@@ -96,7 +96,7 @@ chart: # false (default), true
 
 ## => Paginate
 ##############################
-paginate: 8
+paginate: 5
 paginate_path: /page:num # don't change this unless for special need
 
 
@@ -229,8 +229,8 @@ plugins:
 
 
 collections:
-  categories:
-    output: true
+  # categories:
+  #   output: true
   
   # 카테고리, 서브 카테고리 collection들
   # 컴퓨터 전공
@@ -312,5 +312,5 @@ collections:
     output: true
   
   # FrontEnd
-  android:
-    output: true
+  # android:
+  #   output: true
