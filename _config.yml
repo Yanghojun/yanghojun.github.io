@@ -228,88 +228,88 @@ plugins:
   - jemoji
 
 
-collections:
+# collections:
   # categories:
   #   output: true
   
   # 카테고리, 서브 카테고리 collection들
   # 컴퓨터 전공
-  object_oriented:
-    output: true
-  data_structure:
-    output: true
-  github:
-    output: true
-  coding_test:
-    output: true
-  linux:
-    output: true
-  project:
-    output: true
-  jekyll_text_theme_custom:
-    output: true
+  # object_oriented:
+  #   output: true
+  # data_structure:
+  #   output: true
+  # github:
+  #   output: true
+  # coding_test:
+  #   output: true
+  # linux:
+  #   output: true
+  # project:
+  #   output: true
+  # jekyll_text_theme_custom:
+  #   output: true
   
   # 머신러닝
-  supervised_learning:
-    output: true
-  unsupervised_learning:
-    output: true
-  machine_learning_library:
-    output: true
-  data_preprocessing:
-    output: true
-  pandas:
-    output: true
-  numpy:
-    output: true
-  nlp:
-    output: true
-  visualization:
-    output: true
-  image_processing:
-    output: true
-  recommendation_system:
-    output: true
-  evaluation:
-    output: true
-  scikit_learn:
-    output: true
-  kaggle_competition_problem:
-    output: true
-  paper_review:
-    output: true
+  # supervised_learning:
+  #   output: true
+  # unsupervised_learning:
+  #   output: true
+  # machine_learning_library:
+  #   output: true
+  # data_preprocessing:
+  #   output: true
+  # pandas:
+  #   output: true
+  # numpy:
+  #   output: true
+  # nlp:
+  #   output: true
+  # visualization:
+  #   output: true
+  # image_processing:
+  #   output: true
+  # recommendation_system:
+  #   output: true
+  # evaluation:
+  #   output: true
+  # scikit_learn:
+  #   output: true
+  # kaggle_competition_problem:
+  #   output: true
+  # paper_review:
+  #   output: true
   
   # 인공지능 이해를 위한 수학
-  basic_math:
-    output: true
-  linear_algebra:
-    output: true
-  statistics:
-    output: true
+  # basic_math:
+  #   output: true
+  # linear_algebra:
+  #   output: true
+  # statistics:
+  #   output: true
   
   # 딥러닝
-  basic_knowledge:
-    output: true
-  basic_model_organizing:
-    output: true
-  deep_learning_library:
-    output: true
-  docker:
-    output: true
+  # basic_knowledge:
+  #   output: true
+  # basic_model_organizing:
+  #   output: true
+  # deep_learning_library:
+  #   output: true
+  # docker:
+  #   output: true
 
   # Computer Language & Tools
-  kotlin:
-    output: true
-  java:
-    output: true
-  python:
-    output: true
-  c_plus_plus:
-    output: true
-  english:
-    output: true
-  vscode:
-    output: true
+  # kotlin:
+  #   output: true
+  # java:
+  #   output: true
+  # python:
+  #   output: true
+  # c_plus_plus:
+  #   output: true
+  # english:
+  #   output: true
+  # vscode:
+  #   output: true
   
   # FrontEnd
   # android:

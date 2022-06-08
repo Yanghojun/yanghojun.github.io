@@ -108,87 +108,87 @@ study-nav:
   - title: 컴퓨터 전공
     children:
       - title: 객체지향 프로그래밍
-        url:    /category/object_oriented.html
+        url:    /main_nav/object_oriented.html
       - title: 자료구조
-        url: /category/data_structure.html
+        url: /main_nav/data_structure.html
       - title: 깃허브
-        url: /categories/github.html
+        url: /main_nav/github.html
       - title: 코딩 테스트
-        url: /categories/coding_test.html
+        url: /main_nav/coding_test.html
       - title: 리눅스
-        url: /categories/linux.html
+        url: /main_nav/linux.html
       - title: 프로젝트
-        url: /categories/project.html
+        url: /main_nav/project.html
 
   - title: 머신러닝
     children:
       - title: 지도 학습
-        url: /categories/supervised_learning.html
+        url: /main_nav/supervised_learning.html
       - title: 비지도 학습
-        url: /categories/unsupervised_learning.html
+        url: /main_nav/unsupervised_learning.html
       - title: 머신러닝 라이브러리 모음집
-        url: /categories/machine_learning_library.html
+        url: /main_nav/machine_learning_library.html
       - title: 데이터 전처리
-        url: /categories/data_preprocessing.html
+        url: /main_nav/data_preprocessing.html
       - title: 시각화
-        url: /categories/visualization.html
+        url: /main_nav/visualization.html
       - title: Pandas
-        url: /categories/Pandas.html
+        url: /main_nav/Pandas.html
       - title: Numpy
-        url: /categories/Numpy.html
+        url: /main_nav/Numpy.html
       - title: 자연어 처리
-        url: /categories/nlp.html
+        url: /main_nav/nlp.html
       - title: 영상 처리
-        url: /categories/image_processing.html
+        url: /main_nav/image_processing.html
       - title: 추천 시스템
-        url: /categories/recommendation_system.html
+        url: /main_nav/recommendation_system.html
       - title: 평가
-        url: /categories/evaluation.html
+        url: /main_nav/evaluation.html
       - title: 사이킷 런(Scikit-learn)
-        url: /categories/scikit_learn.html
+        url: /main_nav/scikit_learn.html
       - title: 캐글 대회 문제
-        url: /categories/kaggle_competition_problem.html
+        url: /main_nav/kaggle_competition_problem.html
       - title: 논문 리뷰
-        url: /categories/Paper-Review.html
+        url: /main_nav/Paper-Review.html
 
   - title: 딥러닝
     children:
       - title: 기초 지식
-        url: /categories/basic_knowledge.html
+        url: /main_nav/basic_knowledge.html
       - title: 대표 모델 정리
-        url: /categories/basic_model_organizing.html
+        url: /main_nav/basic_model_organizing.html
       - title: 딥러닝 라이브러리 모음집
-        url: /categories/deep_learning_library.html
+        url: /main_nav/deep_learning_library.html
       - title: Docker
-        url: /categories/Docker.html
+        url: /main_nav/Docker.html
 
   - title: 인공지능 이해를 위한 수학
     children:
       - title: 기초 수학
-        url: /categories/basic_math.html
+        url: /main_nav/basic_math.html
       - title: 선형대수학
-        url: /categories/linear_algebra.html
+        url: /main_nav/linear_algebra.html
       - title: 통계학
-        url: /categories/statistics.html
+        url: /main_nav/statistics.html
 
   - title: Computer Language & Tools
     children:
       - title: Kotlin
-        url: /categories/Kotlin.html
+        url: /main_nav/Kotlin.html
       - title: Java
-        url: /categories/Java.html
+        url: /main_nav/Java.html
       - title: Python
-        url: /categories/Python.html
+        url: /main_nav/Python.html
       - title: C++
-        url: /categories/C_plus_plus.html
+        url: /main_nav/C_plus_plus.html
       - title: 영어
-        url: /categories/english.html
+        url: /main_nav/english.html
       - title: VSCODE
-        url: /categories/vscode.html
+        url: /main_nav/vscode.html
         
   - title: FrontEnd
     children:
       - title: 안드로이드
-        url: /categories/android.html
+        url: /main_nav/android.html
       - title: jekyll-text 테마 꾸미기
-        url: /categories/jekyll_text_theme_custom.html
+        url: /main_nav/jekyll_text_theme_custom.html
