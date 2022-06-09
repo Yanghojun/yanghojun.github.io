@@ -2,7 +2,7 @@
 layout: article
 title:  "Patch-wise Deep SVDD"
 category: [Paper-Review]
-permalink: /Patch-wise Deep SVDD/
+permalink: /PatchwiseDeepSVDD/
 tag: [Anomaly Detection, patch]
 aside:
     toc: true

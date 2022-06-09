@@ -108,87 +108,85 @@ study-nav:
   - title: 컴퓨터 전공
     children:
       - title: 객체지향 프로그래밍
-        url:    /main_nav/object_oriented.html
+        url:    /mainNav/object_oriented.html
       - title: 자료구조
-        url: /main_nav/data_structure.html
+        url: /mainNav/data_structure.html
       - title: 깃허브
-        url: /main_nav/github.html
+        url: /mainNav/github.html
       - title: 코딩 테스트
-        url: /main_nav/coding_test.html
+        url: /mainNav/coding_test.html
       - title: 리눅스
-        url: /main_nav/linux.html
+        url: /mainNav/linux.html
       - title: 프로젝트
-        url: /main_nav/project.html
+        url: /mainNav/project.html
 
   - title: 머신러닝
     children:
       - title: 지도 학습
-        url: /main_nav/supervised_learning.html
+        url: /mainNav/supervised_learning.html
       - title: 비지도 학습
-        url: /main_nav/unsupervised_learning.html
+        url: /mainNav/unsupervised_learning.html
       - title: 머신러닝 라이브러리 모음집
-        url: /main_nav/machine_learning_library.html
+        url: /mainNav/machine_learning_library.html
       - title: 데이터 전처리
-        url: /main_nav/data_preprocessing.html
+        url: /mainNav/data_preprocessing.html
       - title: 시각화
-        url: /main_nav/visualization.html
+        url: /mainNav/visualization.html
       - title: Pandas
-        url: /main_nav/Pandas.html
+        url: /mainNav/Pandas.html
       - title: Numpy
-        url: /main_nav/Numpy.html
+        url: /mainNav/Numpy.html
       - title: 자연어 처리
-        url: /main_nav/nlp.html
+        url: /mainNav/nlp.html
       - title: 영상 처리
-        url: /main_nav/image_processing.html
+        url: /mainNav/image_processing.html
       - title: 추천 시스템
-        url: /main_nav/recommendation_system.html
+        url: /mainNav/recommendation_system.html
       - title: 평가
-        url: /main_nav/evaluation.html
-      - title: 사이킷 런(Scikit-learn)
-        url: /main_nav/scikit_learn.html
+        url: /mainNav/evaluation.html
       - title: 캐글 대회 문제
-        url: /main_nav/kaggle_competition_problem.html
+        url: /mainNav/kaggle_competition_problem.html
       - title: 논문 리뷰
-        url: /main_nav/Paper-Review.html
+        url: /mainNav/Paper-Review.html
 
   - title: 딥러닝
     children:
       - title: 기초 지식
-        url: /main_nav/basic_knowledge.html
+        url: /mainNav/basic_knowledge.html
       - title: 대표 모델 정리
-        url: /main_nav/basic_model_organizing.html
+        url: /mainNav/basic_model_organizing.html
       - title: 딥러닝 라이브러리 모음집
-        url: /main_nav/deep_learning_library.html
+        url: /mainNav/deep_learning_library.html
       - title: Docker
-        url: /main_nav/Docker.html
+        url: /mainNav/Docker.html
 
   - title: 인공지능 이해를 위한 수학
     children:
       - title: 기초 수학
-        url: /main_nav/basic_math.html
+        url: /mainNav/basic_math.html
       - title: 선형대수학
-        url: /main_nav/linear_algebra.html
+        url: /mainNav/linear_algebra.html
       - title: 통계학
-        url: /main_nav/statistics.html
+        url: /mainNav/statistics.html
 
   - title: Computer Language & Tools
     children:
       - title: Kotlin
-        url: /main_nav/Kotlin.html
+        url: /mainNav/Kotlin.html
       - title: Java
-        url: /main_nav/Java.html
+        url: /mainNav/Java.html
       - title: Python
-        url: /main_nav/Python.html
+        url: /mainNav/Python.html
       - title: C++
-        url: /main_nav/C_plus_plus.html
+        url: /mainNav/C_plus_plus.html
       - title: 영어
-        url: /main_nav/english.html
+        url: /mainNav/english.html
       - title: VSCODE
-        url: /main_nav/vscode.html
+        url: /mainNav/vscode.html
         
   - title: FrontEnd
     children:
       - title: 안드로이드
-        url: /main_nav/android.html
+        url: /mainNav/android.html
       - title: jekyll-text 테마 꾸미기
-        url: /main_nav/jekyll_text_theme_custom.html
+        url: /mainNav/jekyll_text_theme_custom.html

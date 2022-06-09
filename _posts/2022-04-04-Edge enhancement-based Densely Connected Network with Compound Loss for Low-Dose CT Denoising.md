@@ -2,7 +2,7 @@
 layout: article
 title:  "Edge enhancement-based Densely Connected Network with Compound Loss for Low-Dose CT Denoising"
 category: [Paper-Review]
-permalink: /Edge enhancement-based Densely Connected Network with Compound Loss for Low-Dose CT Denoising/
+permalink: /EdgeEnhancementBasedDenselyConnectedNetworkWithCompundLossForLowDoseCTDenoising/
 tag: [DenseNet, ResNet, Fully convolutional network, Denoising, Perceptual loss]
 aside:
     toc: true

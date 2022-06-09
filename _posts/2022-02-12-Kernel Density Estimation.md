@@ -3,7 +3,7 @@ layout: article
 title:  "Kernel Density Estimation"
 category: [통계학]
 tag: [머신러닝, 딥러닝, 통계, 확률, 확률추정, 확률 밀도 함수]
-permalink: /Kernel Density Estimation/
+permalink: /KernelDensityEstimation/
 aside:
     toc: true
 sidebar:

@@ -1,9 +1,9 @@
 ---
 layout: article
-title:  "사이킷런(Scikit-learn)"
+title:  "사이킷 런(Scikit-learn)"
 category: [머신러닝 라이브러리 모음집]
 tag: [머신러닝, 딥러닝, 사이킷런, scikit-learn, stratify]
-permalink: /사이킷런(Scikit-learn)/
+permalink: /ScikitLearn/
 aside:
     toc: true
 sidebar:

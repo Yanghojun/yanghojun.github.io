@@ -3,7 +3,7 @@ layout: article
 title:  "Pruning and quantization for deep neural network acceleration"
 category: [Paper-Review]
 tag: [pruning, neural network, survey, trend]
-permalink: /Pruning and quantization for deep neural network acceleration/
+permalink: /PruningAndQuantizationForDeepNeuralNetworkAcceleration/
 aside:
     toc: true
 sidebar:

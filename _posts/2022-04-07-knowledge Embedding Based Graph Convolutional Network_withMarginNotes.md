@@ -2,7 +2,7 @@
 layout: article
 title:  "knowledge Embedding Based Graph Convolutional Network"
 category: [Paper-Review]
-permalink: /knowledge Embedding Based Graph Convolutional Network/
+permalink: /KnowledgeEmbeddingBasedGraphConvolutionalNetwork/
 tag: [Graph neural network, GNN, Knowledge graph]
 aside:
     toc: true

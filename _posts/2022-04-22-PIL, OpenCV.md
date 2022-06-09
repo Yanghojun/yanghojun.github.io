@@ -3,7 +3,7 @@ layout: article
 title:  "PIL, OpenCV"
 category: [머신러닝 라이브러리 모음집]
 tag: [PIL, OpenCV, 영상처리, python]
-permalink: /PIL, OpenCV/
+permalink: /PILAndOpenCV/
 aside:
     toc: true
 sidebar:

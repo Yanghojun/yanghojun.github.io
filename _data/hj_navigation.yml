@@ -1,8 +1,0 @@
-- name: Home    # 다른데서 site.data.name 혹은 site.data.link 등으로 접속 가능
-  link: /       # for문을 이용하면 for item in site.data.navigation 이라고 예를 들면 item.name, item. link로 모든 아이템에 대한 반복 접근이 가능
-- name: About
-  link: /hj_about.html
-- name: Blog
-  link: /blog.html
-- name: Staff
-  link: /staff.html

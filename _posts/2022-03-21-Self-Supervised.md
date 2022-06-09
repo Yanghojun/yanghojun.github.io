@@ -3,7 +3,7 @@ layout: article
 title:  "Self-Supervised"
 category: [비지도 학습]
 tag: [자가 학습, self-supervised, data]
-permalink: /Self-Supervised/
+permalink: /SelfSupervised/
 aside:
     toc: true
 sidebar:

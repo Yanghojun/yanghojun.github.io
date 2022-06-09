@@ -3,7 +3,7 @@ layout: article
 title:  "Pull request"
 category: [깃허브]
 tag: [Git, 협업, Pull request]
-permalink: /Pull request/
+permalink: /PullRequest/
 aside:
     toc: true
 sidebar:

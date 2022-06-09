@@ -3,7 +3,7 @@ layout: article
 title:  "What is the state of neural network pruning?"
 category: [Paper-Review]
 tag: [Pruning, Neural network, state-of-art]
-permalink: /paper1/
+permalink: /WhatIsTheStateOfNeuralNetworkPruning/
 aside:
     toc: true
 sidebar:

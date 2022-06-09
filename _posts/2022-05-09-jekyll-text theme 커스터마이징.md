@@ -3,7 +3,7 @@ layout: article
 title:  "jekyll-text theme 커스터마이징"
 category: [jekyll-text 테마 꾸미기]
 tag: [jekyll-text, jekyll-theme, customization]
-permalink: /jekyll-text theme 커스터마이징/
+permalink: /JekyllTextThemeCustomization/
 aside:
     toc: true
 sidebar:
