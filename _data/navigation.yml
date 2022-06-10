@@ -117,6 +117,8 @@ study-nav:
         url: /mainNav/coding_test.html
       - title: 리눅스
         url: /mainNav/linux.html
+      - title: 데이터베이스
+        url: /mainNav/database.html
       - title: 프로젝트
         url: /mainNav/project.html
 
