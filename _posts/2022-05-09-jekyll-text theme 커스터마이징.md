@@ -24,6 +24,23 @@ sidebar:
 <p align="center"> <img src="../images/20220509232248.png" width="70%"> </p>
 <div align="center">_variables.scss 파일</div>
 
+
+## 크기 늘리기
+
+`_variable.scss` 파일 수정
+
+```scss
+$layout: (
+  header-height:          5rem,
+  header-height-sm:       3rem,
+  content-max-width:      950px,
+  sidebar-width:          250px,
+  sidebar-header-height:  3rem,
+  // aside-width:            220px
+  aside-width:            300px   // 기존보다 조금 더 늘렸다.
+);
+```
+
 # 포스터 수정
 
 ## 글자 크기 수정
