@@ -111,7 +111,7 @@ study-nav:
         url:    /mainNav/object_oriented.html
       - title: 자료구조
         url: /mainNav/data_structure.html
-      - title: 깃허브
+      - title: Git
         url: /mainNav/github.html
       - title: 코딩 테스트
         url: /mainNav/coding_test.html
