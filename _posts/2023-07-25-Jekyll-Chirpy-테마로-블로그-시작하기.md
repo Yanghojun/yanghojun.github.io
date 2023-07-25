@@ -2,12 +2,14 @@
 title: Jekyll Chirpy 테마로 블로그 시작하기 (23.07.25 확인)
 date: 2023-07-25
 categories: [Blogging, Jekyll-Chirpy]
-tags: [layout:home#IndexPage]
+tags: [layout:home#IndexPage, Jekyll-Chirpy]
 ---
 
 > --- layout: home # Index page --- 에러 해결  
 > Windows10에서 동작하는 것 확인. Linux, MacOS는 더 쉽게 될 것으로 예상  
 > Windows10에서 bash tools/init 명령어 사용 못하지만 별 문제 없었음  
+
+Chirpy Live Demo 페이지를 통해 초기 환경을 설정하려는데 부딪히는 점이 많더라고요..
 
 가장 크게 시간을 썼던 부분은 `https://yanghojun.github.io`에 접속시 --- layout: home # Index page --- 만 뜨고 블로그 테마가 로딩되지 않는 문제가 있었어요.
 
@@ -71,6 +73,6 @@ bundle exec jekyll s
 
 위 영상에서는 pages.yml이 추가되지만 우리는 jekyll.yml이 추가될거에요.
 
-이 jekyll.yml 파일은 아직 우리 로컬 파일에는 없으니 `git pull origin master`를 통해 로컬에 가져와야합니다.
+이 jekyll.yml 파일은 Github에만 존재할 뿐 아직 우리 로컬에는 없는 파일이니 `git pull origin master`를 통해 로컬에 가져와야합니다.
 
 이후 포스트를 작성하고 `git push origin master`를 통해 commit 한 내용들을 푸쉬하면 여러분이 작성한 글이 약 1분 후 `깃헙아이디.github.io` 주소를 통해 조회가 될거에요!!
