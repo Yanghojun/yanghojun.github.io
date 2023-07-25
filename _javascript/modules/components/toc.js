@@ -5,7 +5,7 @@ export function toc() {
       tocSelector: '#toc',
       contentSelector: '.post-content',
       ignoreSelector: '[data-toc-skip]',
-      headingSelector: 'h2, h3',
+      headingSelector: 'h1, h2, h3',
       orderedList: false,
       scrollSmooth: false
     });

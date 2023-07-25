@@ -5,7 +5,7 @@ theme: jekyll-theme-chirpy
 
 # Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
 # and doesn't have a custom domain.
-baseurl: "/yanghojun.github.io"
+baseurl: ""
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
@@ -25,7 +25,7 @@ tagline: JUNior enginEER -> JUNEER # it will display as the sub-title
 description: Machine-Learning, Deep-Learning Tech Blog # used by seo meta and the atom feed
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: "https://Yanghojun.github.io"
+url: "https://yanghojun.github.io"
 
 github:
   username: yanghojun # change to your github username
@@ -72,7 +72,7 @@ theme_mode: # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: "https://chirpy-img.netlify.app"
+img_cdn: "images/"
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/commons/avatar.jpg"
