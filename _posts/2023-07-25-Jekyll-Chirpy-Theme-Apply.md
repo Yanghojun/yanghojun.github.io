@@ -17,7 +17,7 @@ tags: [layout:home#IndexPage]
 
 Fork를 통해 `깃헙아이디.github.io`로 Repository 이름을 수정해주세요.
 
-![Repo 수정](../images/image-3.png)
+![Repo 수정](/images/image-3.png)
 
 ### Node.js 설치
 
