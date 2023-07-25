@@ -51,14 +51,22 @@ bundle exec jekyll s
 
 ## 3단계. Github에서 배포 작업하기
 
-![Alt text](../images/image-4.png)
+![Alt text](/images/image-4.png)
 
 <div align="center" markdown="1">
 **Pages** 클릭
 </div>
 
-![Alt text](../images/image-5.png)
+![Alt text](/images/image-5.png)
 
 <div align="center" markdown="1">
 **GitHub Actions** 클릭
 </div>
+
+가장 중요한것은 **jekyll.yml 파일**을 Github을 통해서 Local에 받아오는 과정이에요! 다음 영상을 꼭 참고해주세요.
+
+[영상](https://www.youtube.com/shorts/Kq28yBigDYw)
+
+위 영상에서는 pages.yml이 추가되지만 우리는 jekyll.yml이 추가될거에요.
+
+이 상태에서 포스트를 작성하고 `git push origin master`를 통해 commit 한 내용들을 푸쉬하면 여러분이 작성한 글이 약 1분 후 `깃헙아이디.github.io` 주소를 통해 조회가 될거에요!!
