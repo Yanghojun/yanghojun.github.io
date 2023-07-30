@@ -1,12 +1,12 @@
 ---
 title: LCCNet 논문 리뷰
-author: cotes
-date: 2019-08-11 00:34:00 +0800
+date: 2023-07-24
 categories: [연구개발자로의 길, 논문 리뷰(코드 레벨 분석)]
 tags: [LCCNet, Calibration, 카메라-라이다-정합, Deep-Learning]
 ---
 
 # LCCNet
+
 
 ## 코드 분석
 - 23.07.24 이슈 정리
@@ -19,4 +19,12 @@ tags: [LCCNet, Calibration, 카메라-라이다-정합, Deep-Learning]
                                     # pytorch framweork 코드 분석으로 save_backward 에러는 해결한걸로 보임
     ```
 
-- Te
+- 23.07.30 해결 사항
+  - 위 언급한 `save_for_backward` 에러에 대해 아래와 같이 해결함
+
+    ```python
+    # ctx.save_for_backward(self, input1, input2)   # 기존 코드. save_for_backward 함수는 Tensor만 인자로 넘겨야 하는데 Python object를 넘기고 있어서 계속 에러 났었음.
+    ctx.self = self                                 # 이 방법으로 아주 쉽게 backward 함수에서 접근 가능하도록 만들 수 있었음
+    ctx.save_for_backward(input1, input2)           
+    ```
+
