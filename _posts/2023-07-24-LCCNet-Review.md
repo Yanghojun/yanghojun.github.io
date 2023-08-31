@@ -31,23 +31,18 @@ math: true
   - 내 Repository에 올려둠 -> [Repo](https://github.com/Yanghojun/LCCNet.git)
   - 현재 PCD들이 생성되고 있지만 Node 14 버젼이어야 pcd viewer를 설치할 수 있다. 근데 이 블로그 설치하려고 node 18 버젼 설치했던거라 node 다운그레이드는 나중에 하자.
 
+### Camera-LiDAR calibration 시각화
 
-### 데이터 전처리
+다크 프로그래머 블로그를 통해 반복해서 Camera-LiDAR 정합을 공부하였으나, 실제로 어떤 값이 어떻게 코드에 적용되는지를 정확히 알지 못한다. `LCCNet` 코드에서 Camera-LiDAR calibration을 시각화한 코드가 있어서 여기 코드를 분석하면 이해에 큰 도움이 될 것으로 생각된다.
 
-- depth_gt: PCD, CamIntrinsic(calibration 파일) 이용해서 2d projection한 <span style="color:red">Grount Truth</span>
-- depth_img: 일부러 오차 정보를 행렬곱시킨 PCD, CamIntrinsic(calibration 파일) 이용해서 2d projection한 데이터
-
-<p align="center"> <img src="/images/image-7.png" width="100%"> </p>
+![Alt text](/images/image-66.png)
 <div align="center" markdown="1">
-depth_gt 이미지
+GT로 생성된 00000.png  
+위 이미지가 어떻게 생성되는지를 분석하고자 한다.
 </div>
 
-<p align="center"> <img src="/images/image-8.png" width="100%"> </p>
-<div align="center" markdown="1">
-depth_img 이미지
-</div>
 
-이 둘의 이미지가 조금 달라야 할 것 같은데... 왜 똑같지..
+
 
 #### Depth LiDAR Image 생성
 
@@ -100,6 +95,16 @@ def quat2mat(q):
 ```
 
 ### Loss 함수
+
+논문에 나오는 $$T_{init}, K $$ 등 의미 정리
+
+- $$T_{init} : \left[ \begin{matrix} R_{init}, T_{init} \\ 0, 1 \end{matrix} \right] $$  &nbsp;
+- $$ K : $$ 카메라 내부 파라미터
+
+![Alt text](/images/image-65.png)
+
+- $$ K : $$ 카메라 내부 파라미터
+- $$ Z^{init}_i $$ : 다크 프로그래머님 블로그글의 **스케일링 팩터**로 예상됌.
 
 ```python
 class CombinedLoss(nn.Module):
@@ -157,7 +162,7 @@ class CombinedLoss(nn.Module):
         #end = time.time()
         #print("3D Distance Time: ", end-start)
         total_loss = (1 - self.weight_point_cloud) * pose_loss +\
-                     self.weight_point_cloud * (point_clouds_loss/target_transl.shape[0])
+                    self.weight_point_cloud * (point_clouds_loss/target_transl.shape[0])
         self.loss['total_loss'] = total_loss
         self.loss['transl_loss'] = loss_transl
         self.loss['rot_loss'] = loss_rot
@@ -166,7 +171,22 @@ class CombinedLoss(nn.Module):
         return self.loss
 ```
 
-- 의문점들
-  1. Ground Truth, Predicted result를 비교해서 Pose loss(Regression loss)를 구했음. 근데, 같은 정보(Ground Truth, Predicted result)를 활용해서 Point Cloud Distance loss를 구하는 수학적 의미가 있을까?
-     - 수학을 못하는 응애의 시선으론 두 loss가 거의 동일한 역할을 하는것으로 보임. 상호 보완이 되는 뭔가가 있는것인가?
-  2. 위 1과 연관된 의문으로 `RT_total` 이 유도되는 코드를 보면 `RT_target`과 `RT_predicted`를 행렬곱하고 있는데 이는 `RT_predicted`를 error로 간주해서 이 error만큼 다시 회전과 이동을 진행시켜준다고 받아들이면 될까?.. 오 맞는듯..??? $$ \rightarrow $$ 다시 생각해보니 아닌듯.. self.transl_loss쪽 보면 거리가 서로 가까워야 loss 떨어질게 명확히 보임. 즉 transl_err가 err를 의미하는건 아닐거로 생각됌.
+
+## 의문점
+
+
+1. Ground Truth, Predicted result를 비교해서 Pose loss(Regression loss)를 구했음. 근데, 같은 정보(Ground Truth, Predicted result)를 활용해서 Point Cloud Distance loss를 구하는 수학적 의미가 있을까?
+   - 수학을 못하는 응애의 시선으론 두 loss가 거의 동일한 역할을 하는것으로 보임. 상호 보완이 되는 뭔가가 있는것인가?
+2. LCCNet은 GT의 inverse를 predict 하도록 학습되는 것임. 근데 왜 그 inverse를 decompose해서 R, T로 칭한 행렬에 왜 `error`라는 키워드를 붙이는 걸까?
+3. plt로는 시각화가 잘 되는데 cv2로는 안나옴.. 뭔 차이지.
+
+    ```python
+        #plt 코드
+        plt.imshow(depth_img_pred.cpu().permute(1, 2, 0), cmap='gray')
+
+        #cv2 코드
+        cv2.imwrite(visual_path + '/depth_img_pred.png', depth_img_pred.cpu().numpy().astype(np.uint8).transpose(1, 2, 0))
+    ```
+
+4. 다크 프로그래머 블로그에선 [링크](https://darkpgmr.tistory.com/190) Kitti 데이터의 `calib.txt`가 
+$ K [R | T] $ 로 즉, 내부와 외부 파라미터를 모두 적용한 matrix 값이라고 설명한다. 그럼 lccnet에서의 `cam_intrinsic` 변수에는 뭐가 담겨 있는거지?
