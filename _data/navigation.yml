@@ -150,6 +150,8 @@ study-nav:
     children:
       - title: 인공지능
         url: /mainNav/artificial_intelligence.html
+      - title: 추천 시스템
+        url: /mainNav/recommendation_system.html
       - title: 영상 처리
         url: /mainNav/image_processing.html
       - title: 논문 리뷰
