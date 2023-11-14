@@ -1,35 +1,61 @@
 {
-  "name": "jekyll-theme-chirpy",
-  "version": "6.1.0",
-  "description": "A minimal, responsive and feature-rich Jekyll theme for technical writing.",
+  "name": "jekyll-text-theme",
+  "version": "2.2.6",
+  "author": "Tian Qi",
+  "license": "MIT",
+  "keywords": [
+    "jekyll",
+    "jekyll-theme",
+    "jekyll-template"
+  ],
+  "homepage": "https://github.com/kitian616/jekyll-TeXt-theme",
+  "description": "A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cotes2020/jekyll-theme-chirpy.git"
+    "url": "git+https://github.com/kitian616/jekyll-TeXt-theme.git"
   },
-  "author": "Cotes Chung",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cotes2020/jekyll-theme-chirpy/issues"
+    "url": "https://github.com/kitian616/jekyll-TeXt-theme/issues"
   },
-  "homepage": "https://github.com/cotes2020/jekyll-theme-chirpy/",
   "scripts": {
-    "prebuild": "npx rimraf assets/js/dist",
-    "build": "NODE_ENV=production npx rollup -c --bundleConfigAsCjs",
-    "prewatch": "npx rimraf assets/js/dist",
-    "watch": "npx rollup -c --bundleConfigAsCjs -w",
-    "test": "npx stylelint _sass/**/*.scss",
-    "fixlint": "npm run test -- --fix"
+    "build": "cross-env JEKYLL_ENV=production bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve -H 0.0.0.0",
+    "Gemfile.lock": "docker run --rm -v \"$PWD\":/usr/src/app -w /usr/src/app ruby:2.6 bundle install",
+    "docker-dev:build-image": "docker-compose -f ./docker/docker-compose.build-image.yml build",
+    "docker-dev:default": "docker-compose -f ./docker/docker-compose.default.yml up",
+    "docker-dev:dev": "docker-compose -f ./docker/docker-compose.dev.yml up",
+    "docker-dev:demo-dev": "docker-compose -f ./docker/docker-compose.demo.yml up",
+    "docker-dev:demo-beta": "cross-env JEKYLL_ENV=beta docker-compose -f ./docker/docker-compose.demo.yml up",
+    "docker-dev:demo-prod": "cross-env JEKYLL_ENV=production docker-compose -f ./docker/docker-compose.demo.yml up",
+    "docker-prod:build": "cross-env JEKYLL_ENV=production docker-compose -f ./docker/docker-compose.prod.yml build",
+    "docker-prod:serve": "cross-env JEKYLL_ENV=production docker-compose -f ./docker/docker-compose.prod.yml up",
+    "default": "bundle exec jekyll serve -H 0.0.0.0 -t",
+    "dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.dev.yml",
+    "demo-dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",
+    "demo-beta": "cross-env JEKYLL_ENV=beta bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",
+    "demo-prod": "cross-env JEKYLL_ENV=production bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",
+    "eslint": "eslint \"_includes/**/*.js\"",
+    "eslint-fix": "eslint \"_includes/**/*.js\" --fix",
+    "stylelint": "stylelint --syntax scss \"_sass/**/*.scss\"",
+    "stylelint-fix": "stylelint --syntax scss \"_sass/**/*.scss\" --fix",
+    "gem-build": "rm -fv jekyll-text-theme-*.gem && gem build jekyll-text-theme.gemspec",
+    "gem-push": "gem push jekyll-text-theme-*.gem"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.20.2",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-terser": "^0.4.0",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.20.2",
-    "rollup-plugin-license": "^3.0.1",
-    "stylelint": "^15.3.0",
-    "stylelint-config-standard-scss": "^9.0.0"
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "cross-env": "^7.0.0",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "stylelint": "^13.0.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.14.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

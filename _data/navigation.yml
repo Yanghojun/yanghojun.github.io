@@ -1,0 +1,184 @@
+header:
+  - titles:
+      # @start locale config
+      en      : &EN       Archive
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  归档
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  歸檔
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       아카이브
+      ko-KR   : *KO
+      fr      : &FR       Archives
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Arşivdekiler
+      # @end locale config
+    url: /archive.html
+
+  # - titles:
+  #     # @start locale config
+  #     en      : &EN       About
+  #     en-GB   : *EN
+  #     en-US   : *EN
+  #     en-CA   : *EN
+  #     en-AU   : *EN
+  #     zh-Hans : &ZH_HANS  关于
+  #     zh      : *ZH_HANS
+  #     zh-CN   : *ZH_HANS
+  #     zh-SG   : *ZH_HANS
+  #     zh-Hant : &ZH_HANT  關於
+  #     zh-TW   : *ZH_HANT
+  #     zh-HK   : *ZH_HANT
+  #     ko      : &KO       소개
+  #     ko-KR   : *KO
+  #     fr      : &FR       À propos
+  #     fr-BE   : *FR
+  #     fr-CA   : *FR
+  #     fr-CH   : *FR
+  #     fr-FR   : *FR
+  #     fr-LU   : *FR
+  #     tr      : &TR       Hakkında
+  #     # @end locale config
+  #   url: /about.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Study
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  关于
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  關於
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       공부방
+      ko-KR   : *KO
+      fr      : &FR       À propos
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Hakkında
+      # @end locale config
+    url: /study.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       AboutMe
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      ko      : &KO       내 소개
+      ko-KR   : *KO
+      # @end locale config
+    url: /AboutMe
+
+
+docs-en:
+  - title:      Start
+    children:
+      - title:  Quick Start
+        url:    /docs/en/quick-start
+      - title:  Structure
+        url:    /docs/en/structure
+        
+  - title:      Customization
+    children:
+      - title:  Configuration
+        url:    /docs/en/configuration
+      - title:  Navigation
+        url:    /docs/en/navigation
+  - title: Collections test
+    children:
+      - title: Home
+        url: /
+      - title: About
+        url: /about.html
+      - title: Blog
+        url: /blog.html
+      - title: Staff
+        url: /staff.html
+
+study-nav:
+  - title: 개발 Tool
+    children:
+      - title: Git
+        url: /mainNav/git.html
+      - title: Docker
+        url: /mainNav/docker.html
+      - title: Pytorch
+        url: /mainNav/pytorch.html
+      - title: VSCODE
+        url: /mainNav/vscode.html
+      - title: Numpy & Pandas
+        url: /mainNav/numpy_pandas.html
+      - title: Matplot & Seaborn
+        url: /mainNav/matplot_seaborn.html
+      - title: Linux
+        url: /mainNav/linux.html
+      - title: Scikit-Learn
+        url: /mainNav/scikit_learn.html
+      - title: Android
+        url: /mainNav/android.html
+      - title: Computer Language
+        url: /mainNav/computer_language.html
+
+  - title: 토이 프로젝트
+    children:
+      - title: MLops
+        url: /mainNav/mlops.html
+      - title: 캐글 대회 문제
+        url: /mainNav/kaggle_competition_problem.html
+
+  - title: 전공 지식
+    children:
+      - title: 인공지능
+        url: /mainNav/artificial_intelligence.html
+      - title: 영상 처리
+        url: /mainNav/image_processing.html
+      - title: 논문 리뷰
+        url: /mainNav/paper_review.html
+      - title: 객체지향 프로그래밍
+        url: /mainNav/object_oriented.html
+      - title: 코딩테스트
+        url: /mainNav/coding_test.html
+      - title: 데이터 베이스
+        url: /mainNav/data_base.html
+      - title: 자료구조
+        url: /mainNav/data_structure.html
+
+  - title: AI 이해를 위한 수학
+    children:
+      - title: 기초 수학
+        url: /mainNav/basic_math.html
+      - title: 선형대수학
+        url: /mainNav/linear_algebra.html
+      - title: 확률과 통계
+        url: /mainNav/statistics.html
+      - title: 최적화
+        url: /mainNav/convex.html
+
+  - title: 기타
+    children:
+      - title: 깃헙 블로그 꾸미기
+        url: /mainNav/jekyll_custom.html
+      - title: 문서 작성 관련 정리
+        url: /mainNav/make_document.html
+      - title: 경제
+        url: /mainNav/economics.html

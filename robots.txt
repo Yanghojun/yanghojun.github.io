@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yanghojun.github.io/sitemap.xml
